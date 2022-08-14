@@ -3,6 +3,10 @@
   font-weight: 600;
 }
 
+mat-toolbar a,mat-toolbar h1{
+  transition: color 0.3s ease-in-out;
+}
+
 body.light-theme .litopia-title {
   color: var(--accent-color) !important;
 }
@@ -19,7 +23,6 @@ body.light-theme .litopia-title {
   font-size: 13px;
   line-height: 20px;
   color: unset;
-  transition: color ease-in-out 0.3s;
 }
 
 .nav-link:hover a {

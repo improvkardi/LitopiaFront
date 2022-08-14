@@ -16,10 +16,10 @@ export class ThemeChooserComponent {
   }
 
   setDarkMode() {
-    this.themeChooser.setDarkMode(true)
+    this.themeChooser.updateSettings("dark",true)
   }
 
   setLightMode() {
-    this.themeChooser.setLightMode(true)
+    this.themeChooser.updateSettings("light",true)
   }
 }
