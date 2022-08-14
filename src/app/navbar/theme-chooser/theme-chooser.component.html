@@ -1,0 +1,17 @@
+<button mat-icon-button  [matMenuTriggerFor]="themeSelector" matTooltip="Selecteur de Themes" aria-label="Selecteur de theme Claire/Sombre">
+  <mat-icon>light</mat-icon>
+</button>
+<mat-menu #themeSelector="matMenu">
+  <button mat-menu-item (click)="setLightMode()">
+    <mat-icon>light_mode</mat-icon>
+    <span>Activer le theme clair</span>
+  </button>
+  <button mat-menu-item (click)="setDarkMode()">
+    <mat-icon>dark_mode</mat-icon>
+    <span>Activer le theme sombre</span>
+  </button>
+  <button mat-menu-item (click)="setSystemMode()">
+    <mat-icon>auto_mode</mat-icon>
+    <span>Utiliser les parametres systems</span>
+  </button>
+</mat-menu>

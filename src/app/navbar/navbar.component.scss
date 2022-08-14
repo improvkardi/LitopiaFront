@@ -1,0 +1,47 @@
+.litopia-title {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+body.light-theme .litopia-title {
+  color: var(--accent-color) !important;
+}
+
+.flex-stretch {
+  display: flex;
+  flex-grow: 1;
+}
+
+// nav li class nav-link style
+.nav-link a {
+  margin: auto;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 20px;
+  color: unset;
+  transition: color ease-in-out 0.3s;
+}
+
+.nav-link:hover a {
+  color: var(--primary-color);
+}
+
+body.light-theme .navbar-container-lg {
+  border-bottom: var(--accent-color) solid 2px;
+}
+
+body.light-theme .nav-link:hover a {
+  color: var(--accent-color);
+}
+
+// selected / current nav link style
+.selected a {
+  color: var(--primary-color);
+}
+
+body.light-theme .selected a {
+  color: var(--accent-color);
+}
+
+
+
