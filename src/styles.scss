@@ -6,6 +6,7 @@
 
 @use '@angular/material' as mat;
 @use "./app/layout/navbar/navbar.theme.component" as nav;
+@use "./litopia-base" as base;
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 @include mat.core();
@@ -24,7 +25,7 @@ $fontConfig: (
   subheading-2: mat.define-typography-level(16px, 28px, 400, 'Poppins', 0.0094em),
   subheading-1: mat.define-typography-level(15px, 24px, 500, 'Poppins', 0.0067em),
   body-2: mat.define-typography-level(14px, 24px, 500, 'Poppins', 0.0179em),
-  body-1: mat.define-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
+  body-1: mat.define-typography-level(14px, 20px, 400, 'Poppins', 0.0179em),
   button: mat.define-typography-level(14px, 14px, 500, 'Poppins', 0.0893em),
   caption: mat.define-typography-level(12px, 20px, 400, 'Poppins', 0.0333em),
   input: mat.define-typography-level(inherit, 1.15, 300, 'Poppins', 1.5px)
@@ -213,13 +214,15 @@ $darkTheme: (
 @include mat.all-component-themes($darkTheme);
 
 @include nav.theme($darkTheme);
-
+@include base.theme($darkTheme);
+@import "flex-utils";
 .light-theme {
   @include mat.all-component-themes($lightTheme);
 
   // help to use theme color value and text :
   // https://material.angular.io/guide/theming-your-components
   @include nav.theme($lightTheme);
+  @include base.theme($lightTheme);
 }
 
 // Handle buttons appropriately, with respect to line-height

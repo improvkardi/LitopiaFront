@@ -1,0 +1,77 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, 'primary');
+
+  $primary-color:mat.get-color-from-palette($primary-palette, 200);
+
+  $foreground-palette: map.get($color-config, 'foreground');
+
+  $text-color:mat.get-color-from-palette($foreground-palette, 'base');
+
+
+
+  .big-title{
+    max-width: 600px;
+    font-weight: 600;
+    strong{
+      color: $primary-color;
+      &::after{
+        content: "\a";
+        white-space: pre;
+      }
+    }
+  }
+
+  .underline-title::before{
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background-color: $primary-color;
+  }
+
+  h1.underline-title {
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 600;
+    &::before{
+      transform: translate(0px,33px);
+    }
+  }
+
+  h2.underline-title {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    &::before{
+      transform: translate(0px,30px);
+    }
+  }
+  h3.underline-title {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    &::before{
+      transform: translate(0px,28px);
+    }
+  }
+
+  p.darkerText {
+    font-weight: 300;
+    color: rgba($text-color,0.5);
+  }
+
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+}
