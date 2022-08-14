@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ThemesChooserService} from "../../utils/themes-chooser.service";
+import {ThemesChooserService} from "../../../utils/themes-chooser.service";
 
 @Component({
   selector: 'app-theme-chooser',

@@ -1,8 +1,6 @@
 // large nav bar
 .navbar-container-lg {
   display: flex;
-  align-items: stretch;
-  border-bottom: var(--primary-color) solid 2px;
   height: 80px;
 
   // main navigation style for all liste element
@@ -38,12 +36,7 @@
     }
 
     .nav-link:hover::after, .nav-link:hover::before {
-      background-color: var(--primary-color);
       transform: translate(0, 0px);
     }
   }
-}
-
-body.light-theme .navbar-container-lg .nav-link:hover::after, body.light-theme .navbar-container-lg .nav-link:hover::before {
-  background-color: var(--accent-color);
 }
