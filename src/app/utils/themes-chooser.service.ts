@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
+import {OverlayContainer} from "@angular/cdk/overlay";
 
 type Theme = 'dark'|'light'
 interface ThemeSettings{
@@ -13,7 +14,7 @@ interface ThemeSettings{
 export class ThemesChooserService {
   settings:BehaviorSubject<ThemeSettings>
 
-  constructor() {
+  constructor(private overlay: OverlayContainer) {
     this.settings = new BehaviorSubject<ThemeSettings>(this.retrieveSettings())
     if (!this.settings.value.overrideSystemTheme) this.setSystemMode();
 
@@ -43,10 +44,12 @@ export class ThemesChooserService {
 
   private setDark(){
     window.document.body.classList.remove('light-theme')
+    this.overlay.getContainerElement().classList.remove('light-theme')
   }
 
   private setLight(){
     window.document.body.classList.add('light-theme')
+    this.overlay.getContainerElement().classList.add('light-theme')
   }
 
   public setSystemMode(){

@@ -2,6 +2,7 @@
 .navbar-container-lg {
   display: flex;
   height: 80px;
+  z-index: 1;
 
   // main navigation style for all liste element
   nav ul {

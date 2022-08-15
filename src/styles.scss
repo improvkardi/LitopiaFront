@@ -7,6 +7,7 @@
 @use '@angular/material' as mat;
 @use "./app/layout/navbar/navbar.theme.component" as nav;
 @use "./litopia-base" as base;
+@use "./src/app/pages/acceuil/acceuil.theme.component" as acceuil;
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 @include mat.core();
@@ -89,15 +90,15 @@ $mat-dark-theme-foreground: (
 
 // Background config
 // Light bg
-$light-background:    #fefefe;
+$light-background: #e6f2e6;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
 $light-bg-darker-30:  darken($light-background, 30%);
 $light-bg-lighter-5:  lighten($light-background, 5%);
-$dark-bg-tooltip:     lighten(#181e24, 20%);
-$dark-bg-alpha-4:     rgba(#181e24, 0.04);
-$dark-bg-alpha-12:    rgba(#181e24, 0.12);
+$dark-bg-tooltip:     lighten(#0a1e0a, 20%);
+$dark-bg-alpha-4:     rgba(#0a1e0a, 0.04);
+$dark-bg-alpha-12:    rgba(#0a1e0a, 0.12);
 
 $mat-light-theme-background: (
   background:               $light-background,
@@ -119,7 +120,7 @@ $mat-light-theme-background: (
 
 // Dark bg
 $dark-background:     #181e24;
-$dark-bg-lighter-5:   lighten($dark-background, 5%);
+$dark-bg-lighter-5:   #1D242C;
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
@@ -215,6 +216,8 @@ $darkTheme: (
 
 @include nav.theme($darkTheme);
 @include base.theme($darkTheme);
+@include acceuil.theme($darkTheme);
+
 @import "flex-utils";
 .light-theme {
   @include mat.all-component-themes($lightTheme);
@@ -223,6 +226,7 @@ $darkTheme: (
   // https://material.angular.io/guide/theming-your-components
   @include nav.theme($lightTheme);
   @include base.theme($lightTheme);
+  @include acceuil.theme($lightTheme);
 }
 
 // Handle buttons appropriately, with respect to line-height
@@ -247,7 +251,7 @@ $darkTheme: (
 }
 
 body{
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 0;
   background: $dark-background;

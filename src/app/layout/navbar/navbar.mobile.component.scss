@@ -4,6 +4,7 @@ mat-toolbar.topbar-container-sm{
   align-items: center;
   width: 100%;
   padding: 10px;
+  z-index: 1;
 }
 
 mat-toolbar.navbar-container-sm {
@@ -11,6 +12,7 @@ mat-toolbar.navbar-container-sm {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 1;
 
   nav, nav ul {
     height: 100%;
