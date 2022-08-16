@@ -1,0 +1,35 @@
+.call-to-action-container{
+  margin: 20px 0;
+  a{
+    border-radius: 10px;
+  }
+}
+.content-container{
+  display: flex;
+  flex-flow: row wrap;
+}
+.content-sub-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  max-width: 900px;
+  flex-grow: 0.75;
+}
+
+@media screen and (max-width: 800px){
+  .content-sub-container{
+    padding: 10px;
+    flex-grow:1;
+    width:100%
+  }
+}
+
+.bg-img{
+  background-image: url("/assets/litopia-port-s4.png");
+  background-size:cover;
+}
+
+.section-bottom-radius{
+  border-radius: 0 0 50px 50px;
+}
