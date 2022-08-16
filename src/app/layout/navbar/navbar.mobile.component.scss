@@ -5,11 +5,14 @@ mat-toolbar.topbar-container-sm{
   width: 100%;
   padding: 10px;
   z-index: 1;
+  top:0;
+  height: 60px;
 }
 
 mat-toolbar.navbar-container-sm {
   display: none;
   position: fixed;
+  height: 60px;
   bottom: 0;
   width: 100%;
   z-index: 1;
@@ -50,7 +53,7 @@ mat-toolbar.navbar-container-sm {
   }
 }
 
-@media screen and (max-width:800px)  {
+@media screen and (max-width:750px)  {
   .navbar-container-lg{
     display: none!important;
   }

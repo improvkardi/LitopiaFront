@@ -79,3 +79,14 @@
 img{
   border-radius: 10px;
 }
+
+.full-screen-section{
+  width: 100%;
+  min-height: calc(100vh - 80px);
+}
+
+ @media screen and (max-width: 750px) {
+   .full-screen-section{
+     min-height: calc(100vh - 60px * 2);
+   }
+ }

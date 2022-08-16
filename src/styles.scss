@@ -116,6 +116,10 @@ $mat-light-theme-background: (
   disabled-button-toggle:   $light-bg-darker-10,
   unselected-chip:          $light-bg-darker-10,
   disabled-list-option:     $light-bg-darker-10,
+  5:$light-bg-darker-5,
+  10:$light-bg-darker-10,
+  20:$light-bg-darker-20,
+  30:$light-bg-darker-30,
 );
 
 // Dark bg
@@ -144,6 +148,10 @@ $mat-dark-theme-background: (
   disabled-button-toggle:   $dark-bg-lighter-10,
   unselected-chip:          $dark-bg-lighter-20,
   disabled-list-option:     $dark-bg-lighter-10,
+  5:$dark-bg-lighter-5,
+  10:$dark-bg-lighter-10,
+  20:$dark-bg-lighter-20,
+  30:$dark-bg-lighter-30,
 );
 
 // Compute font config
@@ -152,10 +160,10 @@ $mat-dark-theme-background: (
 // Theme Config
 
 $mat-primary: (
-  main: #a1ec00,
-  lighter: #e3f9b3,
-  darker: #85e400,
-  200: #a1ec00, // For slide toggle,
+  main: #30f230,
+  lighter: #b3ffb3,
+  darker: #4d994d,
+  200: #30f230, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,
