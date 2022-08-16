@@ -16,6 +16,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import { ThemeChooserComponent } from './layout/navbar/theme-chooser/theme-chooser.component';
 import { AcceuilComponent } from './pages/acceuil/acceuil.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { FullscreenImgTextComponent } from './pages/acceuil/fullscreen-img-text/fullscreen-img-text.component';
+import { SeasonPresentationsComponent } from './pages/acceuil/season-presentations/season-presentations.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NavbarComponent,
     ThemeChooserComponent,
     AcceuilComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FullscreenImgTextComponent,
+    SeasonPresentationsComponent
   ],
   imports: [
     BrowserModule,

@@ -16,10 +16,6 @@
   $primary-main:mat.get-color-from-palette($primary-palette, 'main');
   $primary-light:mat.get-color-from-palette($primary-palette, 'lighter');
 
-  .sub-info-container{
-    background-color: $bg-card;
-  }
-
   .transparent-theme-gradiant-bg{
     background: linear-gradient(90deg, rgba($bg-10,0.9) 0%, rgba($bg-20,0.75) 35%, rgba($bg-30,0.5) 100%);
   }

@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
+@import "src/flex-utils";
 
 @mixin color($theme) {
   // Get the color config from the theme.
@@ -7,14 +8,13 @@
 
   // Get the primary color palette from the color-config.
   $primary-palette: map.get($color-config, 'primary');
-
   $primary-color:mat.get-color-from-palette($primary-palette, 200);
 
   $foreground-palette: map.get($color-config, 'foreground');
-
   $text-color:mat.get-color-from-palette($foreground-palette, 'base');
 
-
+  $background-palette: map.get($color-config, 'background');
+  $bg-card:mat.get-color-from-palette($background-palette, 'card');
 
   .big-title{
     max-width: 600px;
@@ -65,6 +65,13 @@
   p.darkerText {
     font-weight: 300;
     color: rgba($text-color,0.5);
+  }
+
+  .card-container{
+    @extend .flex-row;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: $bg-card;
   }
 
 }
