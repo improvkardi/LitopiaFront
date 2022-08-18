@@ -17,9 +17,15 @@
   line-height: 60px;
   text-transform: uppercase;
   font-weight: 900;
-  background-image: url("/assets/litopia-port-s4.png");
+  background-image: url("/assets/images/compressed/litopia-port-s4-256.webp");
   background-size: cover;
   background-clip: text;
   color: transparent;
   padding: 10px;
+}
+
+@media screen and (max-width: 750px){
+  .title-bg{
+    font-size: 80px;
+  }
 }

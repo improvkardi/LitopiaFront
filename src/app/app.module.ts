@@ -19,6 +19,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FullscreenImgTextComponent } from './pages/acceuil/fullscreen-img-text/fullscreen-img-text.component';
 import { SeasonPresentationsComponent } from './pages/acceuil/season-presentations/season-presentations.component';
 import { NousRejoindreComponent } from './pages/nous-rejoindre/nous-rejoindre.component';
+import { PictureContentDeliveryComponent } from './utils/picture-content-delivery/picture-content-delivery.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NousRejoindreComponent } from './pages/nous-rejoindre/nous-rejoindre.co
     NotFoundComponent,
     FullscreenImgTextComponent,
     SeasonPresentationsComponent,
-    NousRejoindreComponent
+    NousRejoindreComponent,
+    PictureContentDeliveryComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

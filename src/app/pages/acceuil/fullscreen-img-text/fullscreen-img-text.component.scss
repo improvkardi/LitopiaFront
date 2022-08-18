@@ -5,6 +5,8 @@
   }
 }
 .content-container{
+  position: absolute;
+  top: 0;
   display: flex;
   flex-flow: row wrap;
 }
@@ -26,10 +28,6 @@
 }
 
 .bg-img{
-  background-image: url("/assets/litopia-port-s4.png");
+  background-image: url("/assets/images/litopia-port-s4.png");
   background-size:cover;
-}
-
-.section-bottom-radius{
-  border-radius: 0 0 50px 50px;
 }

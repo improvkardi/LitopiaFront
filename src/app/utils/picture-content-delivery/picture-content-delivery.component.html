@@ -1,0 +1,11 @@
+<picture>
+  <ng-container *ngFor="let type of FORMAT">
+    <!-- {{type}} -->
+    <source *ngFor="let size of SCREEN_SIZE; let index = index;"
+      [srcset]="'assets/images/compressed/'+name+'-'+getWithBaseOnScreenSize(index)+'.'+type"
+      [media]="'(max-width: '+size+'px)'"
+      [type]="'image/'+type"
+    />
+  </ng-container>
+  <img [ngClass]="classNames" [src]="'/assets/images/'+name+'.png'" [alt]="alt">
+</picture>

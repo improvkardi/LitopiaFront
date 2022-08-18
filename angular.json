@@ -146,6 +146,10 @@
           "options": {
             "routes": [
               "/"
+            ],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets/*"
             ]
           },
           "configurations": {
