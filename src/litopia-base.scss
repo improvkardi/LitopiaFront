@@ -120,6 +120,16 @@ img{
    }
  }
 
+@media screen and (max-width: 750px) {
+  .increase-height{
+    min-height: calc(100vh + 60px * 2);
+    & img{
+      height: calc(100vh + 60px * 2);
+    }
+  }
+}
+
+
 .section-bottom-radius{
   border-radius: 0 0 50px 50px;
 }
