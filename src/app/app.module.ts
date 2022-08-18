@@ -18,6 +18,7 @@ import { AcceuilComponent } from './pages/acceuil/acceuil.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FullscreenImgTextComponent } from './pages/acceuil/fullscreen-img-text/fullscreen-img-text.component';
 import { SeasonPresentationsComponent } from './pages/acceuil/season-presentations/season-presentations.component';
+import { NousRejoindreComponent } from './pages/nous-rejoindre/nous-rejoindre.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +28,11 @@ import { SeasonPresentationsComponent } from './pages/acceuil/season-presentatio
     AcceuilComponent,
     NotFoundComponent,
     FullscreenImgTextComponent,
-    SeasonPresentationsComponent
+    SeasonPresentationsComponent,
+    NousRejoindreComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -42,7 +44,19 @@ import { SeasonPresentationsComponent } from './pages/acceuil/season-presentatio
     MatMenuModule,
     MatTooltipModule
   ],
-  providers: [],
+  providers: [
+    { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
+    { provide: 'PREFERSCOLOR', useFactory: getPrefersColorSchemeDark }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+export function getLocalStorage() {
+  return (typeof window !== "undefined") ? window.localStorage : null;
+}
+
+export function getPrefersColorSchemeDark() {
+  return (typeof window !== "undefined") ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+}

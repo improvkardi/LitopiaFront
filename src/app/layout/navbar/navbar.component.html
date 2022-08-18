@@ -3,11 +3,11 @@
     <h1 class="litopia-title">LITOPIA</h1>
     <nav>
       <ul>
-        <li class="nav-link selected">
-          <a href="#">Acceuil</a>
+        <li class="nav-link" [class.selected]="checkUrl('/')">
+          <a routerLink="">Acceuil</a>
         </li>
-        <li class="nav-link">
-          <a href="#">Nous rejoindre</a>
+        <li class="nav-link" [class.selected]="checkUrl('/nous-rejoindre')">
+          <a routerLink="nous-rejoindre">Nous rejoindre</a>
         </li>
         <li class="nav-link">
           <a href="#">Membres</a>
@@ -36,8 +36,8 @@
   <mat-toolbar  class="navbar-container-sm" role="heading">
     <nav>
       <ul class="nav-sub-container">
-        <li class="nav-link selected">
-          <a mat-button href="#">
+        <li class="nav-link" [class.selected]="checkUrl('/')">
+          <a mat-button routerLink="">
             <div class="nav-button-text">
               <mat-icon>home</mat-icon>
               <span>Acceuil</span>
@@ -45,8 +45,8 @@
           </a>
         </li>
 
-        <li class="nav-link">
-          <a mat-button href="#">
+        <li class="nav-link" [class.selected]="checkUrl('/nous-rejoindre')">
+          <a mat-button routerLink="nous-rejoindre">
             <div class="nav-button-text">
               <mat-icon>send</mat-icon>
               <span>Nous rejoindre</span>
