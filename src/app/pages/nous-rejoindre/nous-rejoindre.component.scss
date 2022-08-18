@@ -1,0 +1,20 @@
+.article-container{
+  padding: 40px;
+}
+
+@media screen and (max-width: 750px) {
+  .article-container{
+    padding: 20px 5px;
+  }
+}
+
+.two-card-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  &>*{
+    flex: 1 1 250px;
+    margin-left: 10px;
+  }
+}

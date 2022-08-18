@@ -1,28 +1,63 @@
 <section>
-  <h1>Nous Rejoindre</h1>
-  <article>
-    <h2>COMMENT NOUS REJOINDRE ?</h2>
-    <h3>INTRODUCTION</h3>
-    <p>Si tu es ici, c'est que Litopia t'intéresse. Notre serveur est ouvert sous forme de candidature&nbsp;<strong><em>(whitelist)</em></strong>.
-      Nous restreignons l'arrivée de nouveaux joueurs dans le but de permettre à la communauté
-      de
-      bien intégrer chacun des arrivants, histoire d'avoir une vraie communauté soudée pour accueillir
-      d'autres
-      personnes. D'un autre côté, cela nous permet aussi d'éviter les joueurs "troll" et ceux qui ne sont
-      pas
-      réellement motivés.
-      En attendant rejoinds-nous sur notre discord ;)</p>
-    <a mat-stroked-button>Rejoindre notre discord</a>
-  </article>
-  <article>
-    <h2>RÈGLEMENT INTERNE DE LITOPIA</h2>
-    <p>Pour intégrer notre serveur, il te faudra avant tout lire et accepter&nbsp;<strong>certaines règles</strong>. En cas de non respect de celles-ci, les joueurs concernés seront sanctionnés sur-le-champ.</p>
-    <a mat-stroked-button>Réglement</a>
-  </article>
-  <article>
-    <h2>CANDIDATURES</h2>
-    <p>Vous vous sentez prêt pour nous rejoindre ? Vous avez hâte de commencer votre aventure ? Alors c'est parti !</p>
-    <a mat-stroked-button>Passez aux candidatures</a>
-  </article>
+  <div class="mid-screen-section section-bottom-radius">
+    <app-picture-content-delivery [name]="'litopia-s4-consula'" [alt]="'Consulat de litopia'" [fullScreenImg]="true"
+                                  [classNames]="['section-bottom-radius']"></app-picture-content-delivery>
+    <div class="
+    screen-section-container
+    mid-screen-section
+    transparent-theme-gradiant-bg
+    section-bottom-radius
+    header-content-container
+    underline-center">
+      <h1 class="mat-title big-title underline">Nous Rejoindre</h1>
+    </div>
+  </div>
+  <div class="article-container">
+    <article class="card-container wrap-reverse">
+      <div>
+        <h2>COMMENT NOUS REJOINDRE ?</h2>
+        <h3 class="mat-subheading-2 underline-title">INTRODUCTION</h3>
+        <p class="darkerText">Si tu es ici, c'est que Litopia t'intéresse. Notre serveur est ouvert sous forme de
+          candidature&nbsp;<strong><em>(whitelist)</em></strong>.
+          Nous restreignons l'arrivée de nouveaux joueurs dans le but de permettre à la communauté
+          de
+          bien intégrer chacun des arrivants, histoire d'avoir une vraie communauté soudée pour accueillir
+          d'autres
+          personnes. D'un autre côté, cela nous permet aussi d'éviter les joueurs "troll" et ceux qui ne sont
+          pas
+          réellement motivés.
+          En attendant rejoinds-nous sur notre discord ;)</p>
+      </div>
+      <app-picture-content-delivery [name]="'litopia-comunity'"
+                                    [alt]="'comunauté de litopia qui forme un cercle'"></app-picture-content-delivery>
+    </article>
+    <div class="call-to-action-container">
+      <a mat-flat-button class="">Rejoindre notre discord</a>
+    </div>
+    <div class="flex-row">
+      <div>
+        <article class="card-container">
+          <h2>RÈGLEMENT INTERNE DE LITOPIA</h2>
+          <p class="darkerText">Pour intégrer notre serveur, il te faudra avant tout lire et accepter&nbsp;<strong>certaines
+            règles</strong>. En cas de non respect de celles-ci, les joueurs concernés seront sanctionnés sur-le-champ.
+          </p>
+        </article>
+        <div class="call-to-action-container">
+          <a mat-flat-button>Réglement</a>
+        </div>
+      </div>
+      <div>
+        <article class="card-container">
+          <h2>CANDIDATURES</h2>
+          <p class="darkerText">Vous vous sentez prêt pour nous rejoindre ? Vous avez hâte de commencer votre aventure ?
+            Alors c'est parti
+            !</p>
+        </article>
+        <div class="call-to-action-container">
+          <a mat-flat-button color="primary">Passez aux candidatures</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 

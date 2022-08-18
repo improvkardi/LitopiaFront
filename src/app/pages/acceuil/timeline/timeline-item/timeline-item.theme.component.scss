@@ -10,7 +10,7 @@
 
   $primary-color:mat.get-color-from-palette($primary-palette, 200);
 
-  .article-container{
+  .timeline-container{
     padding: 20px;
     border-top: 5px solid $primary-color;
     border-bottom: 5px solid $primary-color;
