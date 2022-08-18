@@ -22,6 +22,8 @@ import { NousRejoindreComponent } from './pages/nous-rejoindre/nous-rejoindre.co
 import { PictureContentDeliveryComponent } from './utils/picture-content-delivery/picture-content-delivery.component';
 import { TimelineComponent } from './pages/acceuil/timeline/timeline.component';
 import { TimelineItemComponent } from './pages/acceuil/timeline/timeline-item/timeline-item.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { TimelineItemComponent } from './pages/acceuil/timeline/timeline-item/ti
     NousRejoindreComponent,
     PictureContentDeliveryComponent,
     TimelineComponent,
-    TimelineItemComponent
+    TimelineItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -48,7 +51,8 @@ import { TimelineItemComponent } from './pages/acceuil/timeline/timeline-item/ti
     MatSidenavModule,
     MatButtonModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
   ],
   providers: [
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
