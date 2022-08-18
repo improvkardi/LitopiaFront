@@ -13,7 +13,7 @@ export interface TimelineArticle {
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
-  styleUrls: ['./timeline.component.scss']
+  styleUrls: ['./timeline.component.scss','./timeline.theme.component.scss']
 })
 export class TimelineComponent implements OnInit {
 
