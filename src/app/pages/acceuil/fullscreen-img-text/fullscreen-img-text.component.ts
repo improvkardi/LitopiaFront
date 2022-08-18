@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-fullscreen-img-text',
   templateUrl: './fullscreen-img-text.component.html',
   styleUrls: ['./fullscreen-img-text.component.scss']
 })
-export class FullscreenImgTextComponent implements OnInit {
+export class FullscreenImgTextComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

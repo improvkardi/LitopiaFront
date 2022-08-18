@@ -1,0 +1,13 @@
+<section class="timeline-container">
+  <h1 class="mat-display-2">Timeline du serveur</h1>
+  <section class="timeline-item-container">
+    <app-timeline-item *ngFor="let article of articles; let index = index"
+                       [title]="article.title"
+                       [datetime]="article.datetime"
+                       [displayDate]="article.displayDate"
+                       [description]="article.description"
+                       [image]="article.image"
+                       [align]="index%2==1?'left':'right'"
+    ></app-timeline-item>
+  </section>
+</section>

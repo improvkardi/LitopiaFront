@@ -20,6 +20,8 @@ import { FullscreenImgTextComponent } from './pages/acceuil/fullscreen-img-text/
 import { SeasonPresentationsComponent } from './pages/acceuil/season-presentations/season-presentations.component';
 import { NousRejoindreComponent } from './pages/nous-rejoindre/nous-rejoindre.component';
 import { PictureContentDeliveryComponent } from './utils/picture-content-delivery/picture-content-delivery.component';
+import { TimelineComponent } from './pages/acceuil/timeline/timeline.component';
+import { TimelineItemComponent } from './pages/acceuil/timeline/timeline-item/timeline-item.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { PictureContentDeliveryComponent } from './utils/picture-content-deliver
     FullscreenImgTextComponent,
     SeasonPresentationsComponent,
     NousRejoindreComponent,
-    PictureContentDeliveryComponent
+    PictureContentDeliveryComponent,
+    TimelineComponent,
+    TimelineItemComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -8,6 +8,7 @@
 @use "./app/layout/navbar/navbar.theme.component" as nav;
 @use "./litopia-base" as base;
 @use "app/pages/acceuil/fullscreen-img-text/fullscreen-img-text.theme.component" as fullscreen-img-text;
+@use "app/pages/acceuil/timeline/timeline-item/timeline-item.theme.component" as timeline-item;
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 @include mat.core();
@@ -225,6 +226,7 @@ $darkTheme: (
 @include nav.theme($darkTheme);
 @include base.theme($darkTheme);
 @include fullscreen-img-text.theme($darkTheme);
+@include timeline-item.theme($darkTheme);
 
 @import "flex-utils";
 .light-theme {
@@ -235,6 +237,7 @@ $darkTheme: (
   @include nav.theme($lightTheme);
   @include base.theme($lightTheme);
   @include fullscreen-img-text.theme($lightTheme);
+  @include timeline-item.theme($lightTheme);
 }
 
 // Handle buttons appropriately, with respect to line-height

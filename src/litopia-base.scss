@@ -62,6 +62,11 @@
     }
   }
 
+  time.underline-title::before{
+    transform: translate(0px,20px);
+    width: 40px;
+  }
+
   p.darkerText {
     font-weight: 300;
     color: rgba($text-color,0.75);
@@ -74,6 +79,9 @@
     background-color: $bg-card;
   }
 
+  .primary-color{
+    color:$primary-color;
+  }
 }
 
 @mixin theme($theme) {

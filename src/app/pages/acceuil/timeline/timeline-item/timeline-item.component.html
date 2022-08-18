@@ -1,0 +1,9 @@
+<div class="article-container" [class.left]="align==='left'" [class.right]="align==='right'">
+  <article class="card-container time-item">
+    <header>
+      <h1 class="headline article-title underline-title">{{title}}</h1>
+      <time class="mat-subheading-1" [dateTime]="datetime">{{displayDate}}</time>
+    </header>
+    <p>{{description}}</p>
+  </article>
+</div>

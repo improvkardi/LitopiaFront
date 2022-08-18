@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-season-presentations',
   templateUrl: './season-presentations.component.html',
   styleUrls: ['./season-presentations.component.scss']
 })
-export class SeasonPresentationsComponent implements OnInit {
+export class SeasonPresentationsComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
