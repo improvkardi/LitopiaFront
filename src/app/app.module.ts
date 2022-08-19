@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {Inject, NgModule, PLATFORM_ID} from '@angular/core';
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
+import {MatIconModule, MatIconRegistry} from "@angular/material/icon";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatSidenavModule} from "@angular/material/sidenav";
@@ -25,6 +25,7 @@ import { TimelineItemComponent } from './pages/acceuil/timeline/timeline-item/ti
 import { FooterComponent } from './layout/footer/footer.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AProposComponent } from './pages/acceuil/a-propos/a-propos.component';
+import {isPlatformServer} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -62,7 +63,17 @@ import { AProposComponent } from './pages/acceuil/a-propos/a-propos.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platformId: string) {
+    const svgUrl = 'assets/svg/github-logo.svg';
+    if (isPlatformServer(this.platformId)) {
+      /* Register empty icons for server-side-rendering to prevent errors */
+      this.matIconRegistry.addSvgIconLiteral('github', this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>'));
+    } else {
+      this.matIconRegistry.addSvgIcon('github', this.domSanitizer.bypassSecurityTrustResourceUrl(svgUrl));
+    }
+  }
+}
 
 
 export function getLocalStorage() {

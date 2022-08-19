@@ -20,7 +20,6 @@ export class TimelineComponent implements OnInit {
   articles : TimelineArticle[] = articles;
 
   constructor() {
-    console.log(articles)
   }
 
   ngOnInit(): void {
