@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-picture-content-delivery[alt][name]',
   templateUrl: './picture-content-delivery.component.html',
   styleUrls: ['./picture-content-delivery.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PictureContentDeliveryComponent implements OnInit {
   @Input() alt!:string;

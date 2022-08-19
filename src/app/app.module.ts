@@ -24,6 +24,7 @@ import { TimelineComponent } from './pages/acceuil/timeline/timeline.component';
 import { TimelineItemComponent } from './pages/acceuil/timeline/timeline-item/timeline-item.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import {HttpClientModule} from "@angular/common/http";
+import { AProposComponent } from './pages/acceuil/a-propos/a-propos.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {HttpClientModule} from "@angular/common/http";
     PictureContentDeliveryComponent,
     TimelineComponent,
     TimelineItemComponent,
-    FooterComponent
+    FooterComponent,
+    AProposComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

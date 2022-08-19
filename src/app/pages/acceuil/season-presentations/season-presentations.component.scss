@@ -1,7 +1,6 @@
 .container{
   display: flex;
   flex-direction: row;
-  margin: 40px 0;
   border-radius: 50px;
 }
 
@@ -17,7 +16,8 @@
   line-height: 60px;
   text-transform: uppercase;
   font-weight: 900;
-  background-image: url("/assets/images/compressed/litopia-port-s4-256.webp");
+  background-image: url("/assets/images/compressed/litopia-port-s4-1024.webp");
+  background-attachment: fixed;
   background-size: cover;
   background-clip: text;
   color: transparent;
@@ -27,5 +27,6 @@
 @media screen and (max-width: 750px){
   .title-bg{
     font-size: 80px;
+    background-image: url("/assets/images/compressed/litopia-port-s4-512.webp");
   }
 }

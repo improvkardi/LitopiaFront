@@ -1,4 +1,32 @@
 .time-item{
   display: flex;
-  flex-direction: row;
+  max-width: 700px;
+  flex-wrap: wrap;
+  margin:10px 0!important;
+  header{
+    flex: 2 1 100px !important;
+  }
+  p{
+    flex: 4 1!important;
+  }
+}
+
+.left .time-item::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  transform: translateX(-8px);
+  border-radius: 50%;
+}
+
+.right .time-item::after{
+  content: "";
+  position: absolute;
+  right:0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transform: translateX(8px);
 }

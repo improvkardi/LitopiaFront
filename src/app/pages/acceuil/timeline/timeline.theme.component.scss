@@ -7,10 +7,13 @@
 
   // Get the primary color palette from the color-config.
   $primary-palette: map.get($color-config, 'primary');
-
   $primary-color:mat.get-color-from-palette($primary-palette, 200);
 
+  $background-palette: map.get($color-config, 'background');
+  $bg-10:mat.get-color-from-palette($background-palette, 10);
+
   .timeline-item-container{
+    display: flex;
     position: relative;
     padding: 30px;
   }
@@ -29,10 +32,8 @@
   }
 
   .timeline-item-container.left {
+    flex-direction: row;
     padding-left: 30px;
-    article {
-      flex-wrap: revert;
-    }
   }
 
   .timeline-item-container.left::before {
@@ -43,6 +44,7 @@
   }
 
   .timeline-item-container.right {
+    flex-direction: row-reverse;
     padding-right: 30px;
   }
 
@@ -51,6 +53,10 @@
     right: 0;
     border-right: 5px solid $primary-color;
     border-radius: 0 50px 50px 0;
+  }
+
+  .timeline-container{
+    background-color: $bg-10;
   }
 }
 

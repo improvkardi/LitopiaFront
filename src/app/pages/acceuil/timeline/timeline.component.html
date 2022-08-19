@@ -1,6 +1,10 @@
 <section class="timeline-container">
-  <h1 class="mat-display-2">Timeline du serveur</h1>
-  <section class="flex-column">
+  <h1 class="title-bg">Timeline <span>de </span>Litopia</h1>
+  <section class="flex-column timeline-container-boundary">
+
+    <div class="start-flag-container">
+      <mat-icon color="primary">flag</mat-icon>
+    </div>
     <app-timeline-item *ngFor="let article of articles; let index = index"
                        [title]="article.title"
                        [datetime]="article.datetime"
@@ -10,5 +14,8 @@
                        [align]="index%2==1?'left':'right'"
                        class="timeline-item-container" [class.left]="index%2==1" [class.right]="index%2==0">
     </app-timeline-item>
+    <div class="end-flag-container">
+      <mat-icon color="primary">tour_flag</mat-icon>
+    </div>
   </section>
 </section>

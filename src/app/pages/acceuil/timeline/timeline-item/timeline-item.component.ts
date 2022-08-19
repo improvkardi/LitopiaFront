@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-timeline-item',
   templateUrl: './timeline-item.component.html',
-  styleUrls: ['./timeline-item.component.scss']
+  styleUrls: ['./timeline-item.component.scss','./timeline-item.component.theme.scss'],
+  encapsulation:ViewEncapsulation.None
 })
 export class TimelineItemComponent implements OnInit {
   @Input() title!:string;

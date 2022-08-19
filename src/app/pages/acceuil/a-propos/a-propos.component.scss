@@ -1,0 +1,12 @@
+.propos-section{
+  margin: 40px 0;
+  border-radius: 50px!important;
+  padding: 40px;
+  & app-picture-content-delivery{
+    flex-grow: 5 !important;
+    height: 350px;
+    & img{
+      height: 350px;
+    }
+  }
+}
