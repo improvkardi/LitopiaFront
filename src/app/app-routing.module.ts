@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {AcceuilComponent} from "./pages/acceuil/acceuil.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {NousRejoindreComponent} from "./pages/nous-rejoindre/nous-rejoindre.component";
+import {NousRejoindreFormComponent} from "./pages/nous-rejoindre-form/nous-rejoindre-form.component";
 import {ReglementComponent} from "./pages/reglement/reglement.component";
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component:NousRejoindreComponent
+        component:NousRejoindreFormComponent
       }
     ]
   },

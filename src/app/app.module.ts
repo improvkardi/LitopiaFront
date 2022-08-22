@@ -28,6 +28,7 @@ import { AProposComponent } from './pages/acceuil/a-propos/a-propos.component';
 import {isPlatformServer} from "@angular/common";
 import { ReglementComponent } from './pages/reglement/reglement.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
+import { NousRejoindreFormComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PageHeaderComponent } from './layout/page-header/page-header.component'
     FooterComponent,
     AProposComponent,
     ReglementComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    NousRejoindreFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
