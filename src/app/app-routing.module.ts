@@ -7,7 +7,18 @@ import {ReglementComponent} from "./pages/reglement/reglement.component";
 
 const routes: Routes = [
   {title:'Litopia - Acceuil', path:'', component:AcceuilComponent},
-  {title:'Litopia - Nous Rejoindre', path:'nous-rejoindre', component:NousRejoindreComponent},
+  {title:'Litopia - Nous Rejoindre', path:'nous-rejoindre',
+    children: [
+      {
+        path: '',
+        component:NousRejoindreComponent
+      },
+      {
+        path: ':id',
+        component:NousRejoindreComponent
+      }
+    ]
+  },
   {title:'Litopia - Réglement', path:'reglement', component:ReglementComponent},
   { path: '**', component:NotFoundComponent}
 ];
