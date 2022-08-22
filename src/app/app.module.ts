@@ -26,6 +26,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AProposComponent } from './pages/acceuil/a-propos/a-propos.component';
 import {isPlatformServer} from "@angular/common";
+import { ReglementComponent } from './pages/reglement/reglement.component';
+import { PageHeaderComponent } from './layout/page-header/page-header.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {isPlatformServer} from "@angular/common";
     TimelineComponent,
     TimelineItemComponent,
     FooterComponent,
-    AProposComponent
+    AProposComponent,
+    ReglementComponent,
+    PageHeaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
