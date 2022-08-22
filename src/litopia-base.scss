@@ -230,7 +230,13 @@ img{
 }
 
 .page-content-container{
+  display: flex;
+  flex-direction: column;
   padding: 40px;
+  align-items: center;
+  &>*{
+    max-width: 1200px;
+  }
 }
 
 @media screen and (max-width: 750px) {
