@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-nous-rejoindre-form',
   templateUrl: './nous-rejoindre-form.component.html',
-  styleUrls: ['./nous-rejoindre-form.component.scss']
+  styleUrls: ['./nous-rejoindre-form.component.scss','./nous-rejoindre-form.component.theme.scss'],
 })
 
 export class NousRejoindreFormComponent implements OnInit {
