@@ -28,7 +28,9 @@ import { AProposComponent } from './pages/acceuil/a-propos/a-propos.component';
 import {isPlatformServer} from "@angular/common";
 import { ReglementComponent } from './pages/reglement/reglement.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
-import { NousRejoindreFormComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form.component';
+import { NousRejoindreFormComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form/nous-rejoindre-form.component';
+import { NousRejoindreFormAdhesionComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form-adhesion/nous-rejoindre-form-adhesion.component';
+import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form-counsel/nous-rejoindre-form-counsel.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { NousRejoindreFormComponent } from './pages/nous-rejoindre-form/nous-rej
     AProposComponent,
     ReglementComponent,
     PageHeaderComponent,
-    NousRejoindreFormComponent
+    NousRejoindreFormComponent,
+    NousRejoindreFormAdhesionComponent,
+    NousRejoindreFormCounselComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
