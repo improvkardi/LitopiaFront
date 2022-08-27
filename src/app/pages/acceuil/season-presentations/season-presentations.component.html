@@ -1,19 +1,30 @@
 <section class="card-container-row container">
-  <div class="big-title-container">
+  <div class="big-title-container"
+       [@leftFadeInAnimation]="isAppear('bigTitle')"
+       (appear)="appear('bigTitle')">
     <div>
       <h1 class="title-bg">6's<br>Saisons</h1>
     </div>
   </div>
   <div>
     <div>
-      <h1 class="mat-title big-title">De nouvelles idées !<br>Du monde et de la bonne humeur !</h1>
-      <h2 class="mat-subheading-2 underline-title">Des projets communs</h2>
-      <p class="darkerText">
+      <h1 class="mat-title big-title"
+          [@rightFadeInAnimation]="isAppear('title')"
+          (appear)="appear('title')"
+      >De nouvelles idées !<br>Du monde et de la bonne humeur !</h1>
+      <h2 class="mat-subheading-2 underline-title"
+          [@rightFadeInAnimation]="isAppear('subTitle')"
+          (appear)="appear('subTitle')">Des projets communs</h2>
+      <p class="darkerText"
+         [@rightFadeInAnimation]="isAppear('text')"
+         (appear)="appear('text')">
         Au cours de toute ces saisons, le serveur a su créer un véritable esprit de groupe basé sur la confiance, le
         respect et biensûr beaucoup de tryhard ! Notre objectif, était à la base de mettre en place une serveur entre
         amis sur lequel nous pouvions jouer, nous détendre profitez simplement. Aujourd’hui, chacun de nos membres....
       </p>
-      <div class="call-to-action-container">
+      <div class="call-to-action-container"
+           [@rightFadeInAnimation]="isAppear('btn')"
+           (appear)="appear('btn')">
         <a mat-flat-button color="primary" routerLink="/nous-rejoindre" href="/nous-rejoindre" >
           <span>Candidater</span>
           <mat-icon>arrow_forward</mat-icon>

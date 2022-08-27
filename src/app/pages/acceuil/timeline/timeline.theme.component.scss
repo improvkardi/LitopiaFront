@@ -31,24 +31,24 @@
     border-bottom: 5px solid $primary-color;
   }
 
-  .timeline-item-container.left {
+  .timeline-item-container:nth-child(odd) {
     flex-direction: row;
     padding-left: 30px;
   }
 
-  .timeline-item-container.left::before {
+  .timeline-item-container:nth-child(odd)::before {
     right: 50px;
     left: 0;
     border-left: 5px solid $primary-color;
     border-radius: 50px 0 0 50px;
   }
 
-  .timeline-item-container.right {
+  .timeline-item-container:nth-child(even) {
     flex-direction: row-reverse;
     padding-right: 30px;
   }
 
-  .timeline-item-container.right::before {
+  .timeline-item-container:nth-child(even)::before {
     left: 50px;
     right: 0;
     border-right: 5px solid $primary-color;
