@@ -6,15 +6,16 @@ import {NousRejoindreComponent} from "./pages/nous-rejoindre/nous-rejoindre.comp
 import {ReglementComponent} from "./pages/reglement/reglement.component";
 
 const routes: Routes = [
-  {title:'Litopia - Acceuil', path:'', component:AcceuilComponent},
-  {title:'Litopia - Nous Rejoindre', path:'nous-rejoindre', component:NousRejoindreComponent},
-  {title:'Litopia - Réglement', path:'reglement', component:ReglementComponent},
-  { path: '**', component:NotFoundComponent}
+  {title:'Litopia - Acceuil', path:'', component:AcceuilComponent, data: { animation: 'acceuil' }},
+  {title:'Litopia - Nous Rejoindre', path:'nous-rejoindre', component:NousRejoindreComponent, data: { animation: 'rejoindre' }},
+  {title:'Litopia - Réglement', path:'reglement', component:ReglementComponent, data: { animation: 'reglement' }},
+  { path: '**', component:NotFoundComponent, data: { animation: '404' }}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    initialNavigation: 'enabledBlocking'
+    initialNavigation: 'enabledBlocking',
+    scrollPositionRestoration: 'enabled'
 })],
   exports: [RouterModule]
 })

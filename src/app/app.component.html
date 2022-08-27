@@ -1,5 +1,4 @@
 <app-navbar></app-navbar>
-<main class="content">
-  <router-outlet></router-outlet>
-  <app-footer style="margin-top: auto"></app-footer>
+<main [@fadeAnimations]="getRouteAnimationData()">
+      <router-outlet></router-outlet>
 </main>
