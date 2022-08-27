@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Router} from "@angular/router"
+import {Route, Router} from "@angular/router"
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,9 +12,11 @@ export class NousRejoindreFormComponent implements OnInit {
 
   @Input() id: number;
   public router: Router;
+  public route: ActivatedRoute;
 
-  constructor(router: Router, route: ActivatedRoute) {
-    this.id = this.getRouteId(route);
+  constructor(router: Router, route: ActivatedRoute) { 
+    this.id = 0;
+    this.route = route;
     this.router = router;
   }
 
@@ -31,13 +33,23 @@ export class NousRejoindreFormComponent implements OnInit {
     
   }
 
-  ngOnInit(): void {
+  checkRouteId() {
     if(
       this.id < 1 ||
       this.id > 3
     ) {
       this.router.navigate(['/nous-rejoindre'])
     }
+  }
+
+  ngOnInit(): void {
+    this.id = this.getRouteId(this.route);
+    this.checkRouteId()
+  }
+
+  updateRoute(id: number): void {
+    this.id = id;
+    this.checkRouteId();
   }
 
 }

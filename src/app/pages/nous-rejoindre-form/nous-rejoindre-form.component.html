@@ -1,21 +1,22 @@
 <section>
 
+    <app-page-header
+        [title]="'Nous Rejoindre'"
+        [img]="'litopia-s4-consula'"
+        [imgAlt]="'Consulat de litopia'">
+    </app-page-header>
+
     <div class="page-content-container">
 
         <div *ngIf="id == 1" class="container">
 
-            <div class="">
-                <div class="">
+            <div class="card-container-row">
+                <div class="element-in-row">
                     
-                    <svg class="" height="50" width="75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                        <path d="M256,0C115.2,0,0,115.2,0,256s115.2,256,256,256s256-115.2,256-256S396.8,0,256,0z M256,51.2
-                            c28.16,0,48.64,23.04,46.08,51.2L281.6,307.2h-51.2l-20.48-204.8C207.36,74.24,227.84,51.2,256,51.2z M256,460.8
-                            c-28.16,0-51.2-23.04-51.2-51.2c0-28.16,23.04-51.2,51.2-51.2s51.2,23.04,51.2,51.2C307.2,437.76,284.16,460.8,256,460.8z">
-                        </path>
-                    </svg>
+                    <mat-icon svgIcon="warning" style="width:50px; height: 50px;"></mat-icon>
 
-                    <div class="">
-                        <p class="">
+                    <div class="quote-join-us-warn">
+                        <p class="m-0">
                             <span class="">
                                 Pour nous rejoindre, il est <u>impératif</u> d'écrire une candidature soignée, 
                             </span>
@@ -32,10 +33,10 @@
             </div>
 
             <div>
-                <div class="">
+                <div class="flex-row">
 
                     <div>
-                        <div class="">
+                        <div class="card-container-row">
                             <div>
 
                                 <h2 class="">
@@ -53,7 +54,7 @@
                     </div>
 
                     <div>
-                        <div class="">
+                        <div class="card-container-row">
                             <div>
 
                                 <h2 class="">
@@ -72,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="">
+            <div class="card-container-row">
                 <div>
 
                     <h2 class="">
@@ -95,11 +96,14 @@
                 </div>
             </div>
 
-            <div class="">
-                <div class="">
-                    <a class="" href="/nous-rejoindre/2">
-                        Suivant
-                    </a>
+            <div class="flex-row flex-center">
+                <div class="test">
+                    <div class="call-to-action-container">
+                        <a mat-flat-button color="primary" href="/nous-rejoindre/2" routerLink="/nous-rejoindre/2" (click)="updateRoute(id + 1)">
+                            <span>Suivant</span>
+                            <mat-icon>arrow_forward</mat-icon>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -107,56 +111,69 @@
 
         <div *ngIf="id == 2">
 
-            <article>
-                <h2>
-                        Comment formuler ma candidature ?
-                </h2>
-                <p>
-                    | Vous voulez nous rejoindre ? Très bien, nous en sommes ravis ! 
-                    <br>
-                    | Cependant, comme vous le savez déjà, vous devez rédiger une candidature. Cette page pourra peut-être vous aiguiller si vous n'avez aucune inspiration.
-                </p>
-            </article>
-
-            <article>
-
-                <h4>
-                        Quelques conseils pour commencer
-                </h4>
-                <ul>
-                    <li>
-                        | Avant toute chose, sachez que votre candidature sera publiée aux autres membres du serveur. Donnez leur une bonne impression de vous !
-                    </li>
-                    <li>
-                        | Une bonne candidature se doit d'être soignée. C'est sans doute le point le plus important pour rédiger une présentation agréable à lire. Une belle orthographe vous donnera un énorme avantage pour être accepté.
-                    </li>
-                    <li>
-                        | Présentez-vous, expliquez d'où vous venez, partagez vos hobbys, vos passions, etc.
-                    </li>
-                    <li>
-                        | Montrez votre motivation ! Soyez vous-même, laissez place à l'imagination et n'hésitez pas à rajouter un brin de folie ! Un joueur amical sera certainement préféré à un joueur trop sérieux!
-                    </li>
-                    <li> 
-                        | Soyez patient et prenez votre temps. ll n'y a pas de limite, alors écrivez !
-                    </li>
-                    <li>
-                        | Une dernière chose, n'écrivez pas comme un robot du style : "Je m'appelle Thomas, j'ai 17 ans, j'aime la redstone, j'habite dans le ...". Faites des phrases un minimum structurées !
-                    </li>
-                </ul>
-
-                <p>
-                    | Bref, donnez-nous l'envie de vous recruter, de vous acceptez dans nos rangs. Considérez-nous comme une bande de copains qui ont hâte d'apprendre à mieux vous connaître. Vous pouvez aussi nous expliquer pourquoi avoir choisi Litopia et pas un autre serveur, qu'est-ce que vous recherchez en particulier en adhérant au serveur, etc. N'ayez pas de gêne et vous aurez de fortes chances d'être accepté !
-                </p>
-
-                <p>
-                    | PS : Si votre candidature est plus courte que cette liste de conseils, vous réduisez vos chances de faire mouche !
-                </p>
-
-            </article>
-
-            <div>
+            <article class="card-container-row">
                 <div>
-                    <a href="/nous-rejoindre/3">Ecrire ma candidature</a>
+                    <h2>
+                        Comment formuler ma candidature ?
+                    </h2>
+                    <li>Vous voulez nous rejoindre ? Très bien, nous en sommes ravis !</li>
+                    <li>Cependant, comme vous le savez déjà, vous devez rédiger une candidature. Cette page pourra peut-être vous aiguiller si vous n'avez aucune inspiration.</li>
+                </div>
+            </article>
+
+            <article class="card-container-row">
+
+                <div>
+
+                    <h3 class="mat-subheading-2 underline-title">
+                        Quelques conseils pour commencer
+                    </h3>
+
+                    <div>
+
+                        <ul class="counsel">
+                            <li>
+                                Avant toute chose, sachez que votre candidature sera publiée aux autres membres du serveur. Donnez leur une bonne impression de vous !
+                            </li>
+                            <li>
+                                Une bonne candidature se doit d'être soignée. C'est sans doute le point le plus important pour rédiger une présentation agréable à lire. Une belle orthographe vous donnera un énorme avantage pour être accepté.
+                            </li>
+                            <li>
+                                Présentez-vous, expliquez d'où vous venez, partagez vos hobbys, vos passions, etc.
+                            </li>
+                            <li>
+                                Montrez votre motivation ! Soyez vous-même, laissez place à l'imagination et n'hésitez pas à rajouter un brin de folie ! Un joueur amical sera certainement préféré à un joueur trop sérieux!
+                            </li>
+                            <li> 
+                                Soyez patient et prenez votre temps. ll n'y a pas de limite, alors écrivez !
+                            </li>
+                            <li>
+                                Une dernière chose, n'écrivez pas comme un robot du style : "Je m'appelle Thomas, j'ai 17 ans, j'aime la redstone, j'habite dans le ...". Faites des phrases un minimum structurées !
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <p>
+                        Bref, donnez-nous l'envie de vous recruter, de vous acceptez dans nos rangs. Considérez-nous comme une bande de copains qui ont hâte d'apprendre à mieux vous connaître. Vous pouvez aussi nous expliquer pourquoi avoir choisi Litopia et pas un autre serveur, qu'est-ce que vous recherchez en particulier en adhérant au serveur, etc. N'ayez pas de gêne et vous aurez de fortes chances d'être accepté !
+                    </p>
+    
+                    <p>
+                        PS : Si votre candidature est plus courte que cette liste de conseils, vous réduisez vos chances de faire mouche !
+                    </p>
+
+                </div>
+
+            </article>
+
+            <div class="flex-row flex-center">
+                <div class="test">
+                    <div class="call-to-action-container">
+                        <a mat-flat-button color="primary" href="/nous-rejoindre/3" routerLink="/nous-rejoindre/3" (click)="updateRoute(id + 1)">
+                            <span>Ecrire ma candidature</span>
+                            <mat-icon>arrow_forward</mat-icon>
+                        </a>
+                    </div>
                 </div>
             </div>
 
