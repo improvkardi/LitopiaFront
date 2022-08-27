@@ -29,6 +29,7 @@ import {isPlatformServer} from "@angular/common";
 import { ReglementComponent } from './pages/reglement/reglement.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AppearDirective } from './utils/appear.directive';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
     AProposComponent,
     ReglementComponent,
-    PageHeaderComponent
+    PageHeaderComponent,
+    AppearDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -65,7 +67,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   providers: [
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
-    { provide: 'PREFERSCOLOR', useFactory: getPrefersColorSchemeDark }
+    { provide: 'PREFERSCOLOR', useFactory: getPrefersColorSchemeDark },
+    { provide: 'WINDOWS', useFactory:getWindows },
+    { provide: 'DOCUMENT', useFactory:getDocument}
   ],
   bootstrap: [AppComponent]
 })
@@ -91,4 +95,12 @@ export function getLocalStorage() {
 
 export function getPrefersColorSchemeDark() {
   return (typeof window !== "undefined") ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+}
+
+export function getWindows(){
+  return (typeof window !== "undefined") ? window : null;
+}
+
+export function getDocument(){
+  return (typeof  document !== "undefined") ? document : null;
 }
