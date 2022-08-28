@@ -128,6 +128,11 @@
   .primary-color{
     color:$primary-color;
   }
+
+  .underline {
+    border-bottom: 2px solid $primary-color;
+  }
+
 }
 
 @mixin theme($theme) {
@@ -238,6 +243,16 @@ img{
     max-width: 1200px;
   }
 }
+
+.underline {
+  text-decoration: none;
+}
+
+.fit-content {
+  display: inline;
+  max-width: fit-content;
+}
+
 
 @media screen and (max-width: 750px) {
   .page-content-container{

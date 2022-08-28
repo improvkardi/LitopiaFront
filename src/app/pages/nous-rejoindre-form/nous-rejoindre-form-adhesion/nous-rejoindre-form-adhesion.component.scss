@@ -2,10 +2,6 @@
     margin: 0;
 }
 
-u {
-    text-decoration: none;
-}
-
 .quote-join-us-warn {
     border-left-width: 1px;
     border-left-style: solid;
@@ -17,4 +13,9 @@ u {
     display: flex;
     align-items: center;
     position: relative;
+}
+
+.resize-warning {
+    width:50px; 
+    height: 50px;
 }
