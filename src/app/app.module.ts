@@ -30,6 +30,9 @@ import { ReglementComponent } from './pages/reglement/reglement.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppearDirective } from './utils/appear.directive';
+import { NousRejoindreFormComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form/nous-rejoindre-form.component';
+import { NousRejoindreFormAdhesionComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form-adhesion/nous-rejoindre-form-adhesion.component';
+import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form-counsel/nous-rejoindre-form-counsel.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,11 @@ import { AppearDirective } from './utils/appear.directive';
     AProposComponent,
     ReglementComponent,
     PageHeaderComponent,
-    AppearDirective
+    AppearDirective,
+    PageHeaderComponent,
+    NousRejoindreFormComponent,
+    NousRejoindreFormAdhesionComponent,
+    NousRejoindreFormCounselComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -77,13 +84,16 @@ export class AppModule {
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platformId: string) {
     const githubLogoUrl = 'assets/svg/github-logo.svg';
     const discordLogoUrl = 'assets/svg/discord-logo.svg'
+    const warningUrl = 'assets/svg/warning.svg'
     if (isPlatformServer(this.platformId)) {
       /* Register empty icons for server-side-rendering to prevent errors */
       this.matIconRegistry.addSvgIconLiteral('github', this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>'));
       this.matIconRegistry.addSvgIconLiteral('discord', this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>'));
+      this.matIconRegistry.addSvgIconLiteral('warning', this.domSanitizer.bypassSecurityTrustHtml('<svg></svg>'));
     } else {
       this.matIconRegistry.addSvgIcon('github', this.domSanitizer.bypassSecurityTrustResourceUrl(githubLogoUrl));
       this.matIconRegistry.addSvgIcon('discord', this.domSanitizer.bypassSecurityTrustResourceUrl(discordLogoUrl));
+      this.matIconRegistry.addSvgIcon('warning', this.domSanitizer.bypassSecurityTrustResourceUrl(warningUrl));
     }
   }
 }

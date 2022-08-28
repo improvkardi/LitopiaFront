@@ -4,7 +4,7 @@ import {SeoService} from "../../utils/seo.service";
 @Component({
   selector: 'app-reglement',
   templateUrl: './reglement.component.html',
-  styleUrls: ['./reglement.component.scss',"./reglement.theme.component.scss"]
+  styleUrls: ['./reglement.component.scss']
 })
 export class ReglementComponent implements OnInit {
 
