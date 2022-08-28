@@ -51,7 +51,7 @@ import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/n
     AProposComponent,
     ReglementComponent,
     PageHeaderComponent,
-    AppearDirective
+    AppearDirective,
     PageHeaderComponent,
     NousRejoindreFormComponent,
     NousRejoindreFormAdhesionComponent,

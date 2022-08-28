@@ -7,6 +7,7 @@ import {NousRejoindreComponent} from "./pages/nous-rejoindre/nous-rejoindre.comp
 import {NousRejoindreFormAdhesionComponent} from "./pages/nous-rejoindre-form/nous-rejoindre-form-adhesion/nous-rejoindre-form-adhesion.component";
 import {NousRejoindreFormCounselComponent} from "./pages/nous-rejoindre-form/nous-rejoindre-form-counsel/nous-rejoindre-form-counsel.component";
 import {NousRejoindreFormComponent} from "./pages/nous-rejoindre-form/nous-rejoindre-form/nous-rejoindre-form.component";
+import {ReglementComponent} from "./pages/reglement/reglement.component";
 
 const routes: Routes = [
   {title:'Litopia - Acceuil', path:'', component:AcceuilComponent, data: { animation: 'acceuil' }},
