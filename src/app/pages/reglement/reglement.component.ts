@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SeoService} from "../../utils/seo.service";
 
 @Component({
   selector: 'app-reglement',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReglementComponent implements OnInit {
 
-  constructor() { }
+  constructor(private seo:SeoService) {
+    this.seo.generateTags({
+      title: 'Litopia - Nous rejoindre reglement',
+      description: 'venez rejoindre le server de litopia youpi',
+      //image: 'https://litopia.fr/uneimageàmettre'
+    });
+  }
 
   ngOnInit(): void {
   }

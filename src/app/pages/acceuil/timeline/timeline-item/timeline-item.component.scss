@@ -11,22 +11,22 @@
   }
 }
 
-.left .time-item::before{
+.timeline-item-container:nth-child(odd) .point::before{
   content: "";
   position: absolute;
-  left: 0;
+  left: -8px;
   width: 20px;
   height: 20px;
-  transform: translateX(-8px);
+  top:calc(50% - 10px);
   border-radius: 50%;
 }
 
-.right .time-item::after{
+.timeline-item-container:nth-child(even) .point::after{
   content: "";
   position: absolute;
-  right:0;
+  right: -8px;
+  top:calc(50% - 10px);
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  transform: translateX(8px);
 }

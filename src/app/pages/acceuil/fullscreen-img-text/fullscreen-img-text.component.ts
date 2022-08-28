@@ -6,6 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./fullscreen-img-text.component.scss']
 })
 export class FullscreenImgTextComponent {
+  appearSet=new Set<string>();
 
   constructor() { }
+
+  isAppear(title: string) {
+    this.appearSet.add(title)
+  }
+
+  appear(title: string) {
+    return this.appearSet.has(title)
+  }
 }

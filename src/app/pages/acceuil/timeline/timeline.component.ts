@@ -15,14 +15,7 @@ export interface TimelineArticle {
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.scss','./timeline.theme.component.scss']
 })
-export class TimelineComponent implements OnInit {
+export class TimelineComponent {
 
   articles : TimelineArticle[] = articles;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
 }

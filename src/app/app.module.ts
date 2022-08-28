@@ -28,6 +28,8 @@ import { AProposComponent } from './pages/acceuil/a-propos/a-propos.component';
 import {isPlatformServer} from "@angular/common";
 import { ReglementComponent } from './pages/reglement/reglement.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AppearDirective } from './utils/appear.directive';
 import { NousRejoindreFormComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form/nous-rejoindre-form.component';
 import { NousRejoindreFormAdhesionComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form-adhesion/nous-rejoindre-form-adhesion.component';
 import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form-counsel/nous-rejoindre-form-counsel.component';
@@ -49,6 +51,8 @@ import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/n
     AProposComponent,
     ReglementComponent,
     PageHeaderComponent,
+    AppearDirective
+    PageHeaderComponent,
     NousRejoindreFormComponent,
     NousRejoindreFormAdhesionComponent,
     NousRejoindreFormCounselComponent
@@ -65,11 +69,14 @@ import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/n
     MatButtonModule,
     MatMenuModule,
     MatTooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
   ],
   providers: [
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
-    { provide: 'PREFERSCOLOR', useFactory: getPrefersColorSchemeDark }
+    { provide: 'PREFERSCOLOR', useFactory: getPrefersColorSchemeDark },
+    { provide: 'WINDOWS', useFactory:getWindows },
+    { provide: 'DOCUMENT', useFactory:getDocument}
   ],
   bootstrap: [AppComponent]
 })
@@ -98,4 +105,12 @@ export function getLocalStorage() {
 
 export function getPrefersColorSchemeDark() {
   return (typeof window !== "undefined") ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+}
+
+export function getWindows(){
+  return (typeof window !== "undefined") ? window : null;
+}
+
+export function getDocument(){
+  return (typeof  document !== "undefined") ? document : null;
 }

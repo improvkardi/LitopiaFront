@@ -19,6 +19,7 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Outlined';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import "flex-utils";
 
 $fontConfig: (
   display-4: mat.define-typography-level(112px, 112px, 300, 'Poppins', -0.0134em),
@@ -223,7 +224,7 @@ $darkTheme: (
   background: $mat-dark-theme-background,
 );
 
-// Theme Init
+// Dark Theme Init
 @include mat.all-component-themes($darkTheme);
 
 @include nav.theme($darkTheme);
@@ -234,7 +235,11 @@ $darkTheme: (
 @include nous-rejoindre-form.theme($darkTheme);
 @include footer.theme($darkTheme);
 
-@import "flex-utils";
+body{
+  background-color: $dark-background;
+}
+
+// Light Theme Init
 .light-theme {
   @include mat.all-component-themes($lightTheme);
 
@@ -247,6 +252,9 @@ $darkTheme: (
   @include timeline-container.theme($lightTheme);
   @include nous-rejoindre-form.theme($lightTheme);
   @include footer.theme($lightTheme);
+}
+body.light-theme{
+  background-color: $light-background;
 }
 
 // Handle buttons appropriately, with respect to line-height
@@ -270,11 +278,14 @@ $darkTheme: (
   }
 }
 
-body{
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background: $dark-background;
 }
 
 *{
