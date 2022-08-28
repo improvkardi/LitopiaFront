@@ -11,7 +11,7 @@ export class NousRejoindreComponent implements OnInit {
   constructor(private seo:SeoService) {
     this.seo.generateTags({
       title: 'Litopia - Nous rejoindre',
-      description: 'venez rejoindre le server de litopia youpi riiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiit',
+      description: 'venez rejoindre le server de litopia youpi',
       //image: 'https://litopia.fr/uneimageàmettre'
     });
   }

@@ -23,7 +23,6 @@ export class AcceuilComponent implements OnInit {
   }
 
   appear(appearName:string){
-    console.log(appearName+' is appear')
     this.appearSet.add(appearName)
   }
 
