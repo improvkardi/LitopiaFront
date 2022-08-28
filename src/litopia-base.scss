@@ -133,6 +133,31 @@
     border-bottom: 2px solid $primary-color;
   }
 
+  .list-marked {
+    margin-top: 15px;
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    & > li + li {
+      margin-top: 10px
+    }
+
+    & > li {
+      position: relative;
+      padding-left: 25px;
+
+      &::before {
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        min-width: 30px;
+        content: '\e5cc'; //angular icon : chevron_right
+        font-family: 'Material Icons Outlined', 'Material Icons', sans-serif;
+        color: $primary-color;
+      }
+    }
+  }
+
 }
 
 @mixin theme($theme) {
