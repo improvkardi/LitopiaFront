@@ -109,14 +109,7 @@
             "outputPath": "dist/LitopiaFront/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
-            "inlineStyleLanguage": "scss",
-            "externalDependencies": [
-              "@nestjs/microservices",
-              "@nestjs/microservices/microservices-module",
-              "@nestjs/websockets",
-              "@nestjs/websockets/socket-module",
-              "cache-manager"
-            ]
+            "inlineStyleLanguage": "scss"
           },
           "configurations": {
             "production": {
@@ -126,8 +119,7 @@
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ],
-              "optimization": false
+              ]
             },
             "development": {
               "optimization": false,
@@ -156,6 +148,11 @@
           "options": {
             "routes": [
               "/"
+            ],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/robots.txt"
             ]
           },
           "configurations": {
