@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-nous-rejoindre-form',
@@ -7,6 +7,15 @@ import { Component } from '@angular/core';
 })
 export class NousRejoindreFormComponent {
 
-  constructor() { }
+  constructor() {
+  }
 
+  getClassForUsername(name:string){
+    return {
+      backgroundImage:`url(https://mc-heads.net/head/${name}/left)`,
+      backgroundPosition:'center center',
+      backgroundRepeat:'no-repeat',
+      backgroundSize:'cover'
+    }
+  }
 }

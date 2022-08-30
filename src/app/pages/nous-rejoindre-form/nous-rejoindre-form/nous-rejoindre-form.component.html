@@ -1,16 +1,48 @@
 <section>
-
-    <app-page-header
-        [title]="'Nous Rejoindre'"
-        [img]="'litopia-s4-consula'"
-        [imgAlt]="'Consulat de litopia'">
-    </app-page-header>
-
-    <div class="page-content-container">
-
-        <p>Form inscription</p>
-
-    </div>
-
+  <app-page-header
+    [title]="'Nous Rejoindre'"
+    [img]="'litopia-s4-consula'"
+    [imgAlt]="'Consulat de litopia'">
+  </app-page-header>
+  <div class="page-content-container">
+    <form class="card-container-column form-align">
+      <h2>Ta Candidature (applique toi 😄)</h2>
+      <p>Afin de valider ta candidature tu doit renseigner les information ci dessous.</p>
+      <p>En commensant par te connecter à discord</p>
+      <br>
+      <div class="form-group stretch">
+        <button mat-stroked-button color="primary" class="field-button">
+          <mat-icon svgIcon="discord"></mat-icon>
+          <span>&nbsp;Connecter vous</span>
+        </button>
+        <div class="form-field">
+          <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1">
+            <mat-label>Pseudo minecraft</mat-label>
+            <input matInput #val/>
+          </mat-form-field>
+          <div class="mc-img" [ngStyle]="getClassForUsername(val.value)"></div>
+        </div>
+      </div>
+      <div class="form-group stretch">
+        <mat-form-field appearance="outline" style="width: 100%">
+          <mat-label>Candidature</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    #autosize="cdkTextareaAutosize"
+                    cdkAutosizeMinRows="15"
+                    cdkAutosizeMaxRows="50"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="form-group stretch">
+        <mat-checkbox>J'accepte que ma candidature, ainsi que mes statistiques en jeu, soient publiées sur litopia.fr dans la section <a routerLink="/member" href="/membres">nos membres</a>.</mat-checkbox>
+      </div>
+      <div style="margin-top: 20px" class="form-group stretch">
+        <button mat-flat-button color="primary" disabled="true">
+          <span>Envoyer&nbsp;</span>
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
 </section>
 <app-footer></app-footer>

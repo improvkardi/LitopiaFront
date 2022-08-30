@@ -33,6 +33,9 @@ import { AppearDirective } from './utils/appear.directive';
 import { NousRejoindreFormComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form/nous-rejoindre-form.component';
 import { NousRejoindreFormAdhesionComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form-adhesion/nous-rejoindre-form-adhesion.component';
 import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/nous-rejoindre-form-counsel/nous-rejoindre-form-counsel.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -58,7 +61,7 @@ import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/n
     NousRejoindreFormCounselComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule.withServerTransition({appId: 'serverApp'}),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -71,6 +74,9 @@ import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/n
     MatTooltipModule,
     HttpClientModule,
     FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
   ],
   providers: [
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
@@ -78,7 +84,8 @@ import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/n
     { provide: 'WINDOWS', useFactory:getWindows },
     { provide: 'DOCUMENT', useFactory:getDocument}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[MatCheckboxModule]
 })
 export class AppModule {
   constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, @Inject(PLATFORM_ID) private platformId: string) {

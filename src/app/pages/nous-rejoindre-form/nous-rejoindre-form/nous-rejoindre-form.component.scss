@@ -1,0 +1,49 @@
+.mc-img {
+  width: 60px;
+  height: 60px;
+  transition: background-image 500ms;
+}
+
+.form-field {
+  display: flex;
+  align-items: flex-start;
+
+  & > *:last-child {
+    margin: 0;
+  }
+
+  & > * {
+    margin-right: 5px;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & > * {
+    flex: 1 1 160px;
+    margin: 10px;
+  }
+}
+
+.field-button {
+  padding: 0.56em 15px;
+  border-radius: 5px;
+  width: 200px;
+  margin: auto 10px !important;
+}
+
+:host::ng-deep.mat-checkbox-layout{
+  white-space: normal !important;
+}
+
+:host::ng-deep.mat-checkbox-inner-container{
+  margin-top: 4px;
+}
+
+.form-align > * {
+  align-self: flex-start;
+  margin-top: 0;
+}
