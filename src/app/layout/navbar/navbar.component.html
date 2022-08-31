@@ -27,7 +27,7 @@
           <img class="pp" src="https://cdn.discordapp.com/avatars/{{user.discordID}}/{{user.discordAvatar}}.png" referrerpolicy="no-referrer" [matMenuTriggerFor]="menu" alt="avatar">
         </button>
         <mat-menu #menu="matMenu">
-          <p mat-menu-item>Bienvenue {{user.discordNickname}}</p>
+          <p mat-menu-item disableRipple>Bienvenue {{user.discordNickname}} !</p>
           <button mat-menu-item (click)="logout()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Déconnection</span>
