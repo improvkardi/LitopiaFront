@@ -10,11 +10,17 @@
       <p>Afin de valider ta candidature tu doit renseigner les information ci dessous.</p>
       <p>En commensant par te connecter à discord</p>
       <br>
-      <div class="form-group stretch">
-        <button mat-stroked-button color="primary" class="field-button">
+      <div class="form-group stretch" *ngIf="authService.currentUserObs | async as user">
+        <button *ngIf="!user.logged" type="button" mat-stroked-button color="primary" class="field-button" (click)="authService.login()">
           <mat-icon svgIcon="discord"></mat-icon>
           <span>&nbsp;Connecter vous</span>
         </button>
+        <div class="form-field" *ngIf="user.logged">
+          <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1">
+            <mat-label>Discord</mat-label>
+            <input matInput [value]="user.discordNickname" disabled/>
+          </mat-form-field>
+        </div>
         <div class="form-field">
           <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1">
             <mat-label>Pseudo minecraft</mat-label>

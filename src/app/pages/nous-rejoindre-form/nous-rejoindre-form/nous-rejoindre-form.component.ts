@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AuthenticationService} from "../../../auth/services/authentication.service";
 
 @Component({
   selector: 'app-nous-rejoindre-form',
@@ -7,7 +8,7 @@ import {Component} from '@angular/core';
 })
 export class NousRejoindreFormComponent {
 
-  constructor() {
+  constructor(public authService : AuthenticationService) {
   }
 
   getClassForUsername(name:string){
