@@ -1,6 +1,6 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, firstValueFrom, Observable} from "rxjs";
 import {User} from "./auth-user";
 import {isPlatformBrowser} from "@angular/common";
 
@@ -37,9 +37,10 @@ export class AuthenticationService{
   }
 
   public async logout(){
-    this.http.get('/api/auth/logout').subscribe(()=>{
-      this.getUserStatus()
-    })
+    try {
+      await firstValueFrom(this.http.get('/api/auth/logout'))
+    } catch (e){}
+    this.getUserStatus();
   }
 
   private getUserStatus(){
