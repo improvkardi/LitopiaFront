@@ -1,7 +1,7 @@
 export enum UserRole {
   GHOST = "ghost",
-  CANDIDATE = "CANDIDATE",
-  BAN = "ban",
+  CANDIDATE = "candidate",
+  BAN="ban",
   REFUSED = "refuse",
   LITOPIEN = "litopien",
   ACTIVE_LITOPIEN = "active litopien",

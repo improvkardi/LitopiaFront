@@ -28,6 +28,7 @@ export class NousRejoindreFormComponent {
 
   constructor(public authService : AuthenticationService, private mcApiService:MinecraftApiService,private http: HttpClient,private minecraftUserService:MinecraftUsersService) {
     this.candidatureForm = new FormGroup({
+      isLogged: new FormControl(false,[Validators.requiredTrue]),
       minecraftUsername: new FormControl('', [
         Validators.required, Validators.minLength(3),
         Validators.maxLength(16)
@@ -35,7 +36,7 @@ export class NousRejoindreFormComponent {
         this.minecraftAsyncValidator()
       ]),
       candidature: new FormControl('', [Validators.required, Validators.minLength(1024), Validators.maxLength(4096)]),
-      conditions: new FormControl(false, [Validators.required])
+      conditions: new FormControl(false, [Validators.requiredTrue])
     });
 
     this.candidatureForm.controls['minecraftUsername'].valueChanges.pipe(
@@ -94,5 +95,10 @@ export class NousRejoindreFormComponent {
           )
         ),
       )
+  }
+
+  onSubmit(){
+    console.log(this.candidatureForm.value);
+
   }
 }

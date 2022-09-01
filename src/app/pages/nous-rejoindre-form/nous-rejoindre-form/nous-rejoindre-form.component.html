@@ -5,59 +5,70 @@
     [imgAlt]="'Consulat de litopia'">
   </app-page-header>
   <div class="page-content-container">
-    <form class="card-container-column form-align" [formGroup]="candidatureForm">
-      <h2>Ta Candidature (applique toi 😄)</h2>
-      <p>Afin de valider ta candidature tu doit renseigner les information ci dessous.</p>
-      <p>En commensant par te connecter à discord</p>
-      <br>
-      <div class="form-group stretch" *ngIf="authService.currentUserObs | async as user">
-        <button *ngIf="!user.logged" type="button" mat-stroked-button color="primary" class="field-button" (click)="authService.login()">
-          <mat-icon svgIcon="discord"></mat-icon>
-          <span>&nbsp;Connecter vous</span>
-        </button>
-        <div class="form-field" *ngIf="user.logged">
-          <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1">
-            <mat-label>Discord</mat-label>
-            <input matInput [value]="user.discordNickname" disabled/>
+    <form class="card-container-column form-align" *ngIf="authService.currentUserObs | async as user" [formGroup]="candidatureForm" (ngSubmit)="onSubmit()">
+      <ng-container *ngIf="user.logged===false || user.role==='ghost';else notAvailable">
+        <h2>Ta Candidature (applique toi 😄)</h2>
+        <p>Afin de valider ta candidature tu doit renseigner les information ci dessous.</p>
+        <p>En commensant par te connecter à discord</p>
+        <br>
+        <div class="form-group stretch">
+          <div class="btn-container" *ngIf="!user.logged">
+            <button type="button" [class.field-button-warn]="candidatureForm.touched" mat-stroked-button color="primary" class="field-button" (click)="authService.login()">
+              <mat-icon svgIcon="discord"></mat-icon>
+              <span>&nbsp;Connecter vous</span>
+            </button>
+            <mat-error *ngIf="candidatureForm.touched" class="btn-error">Vous devez vous connecter à discord</mat-error>
+          </div>
+          <div class="form-field" *ngIf="user.logged">
+            <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1">
+              <mat-label>Discord</mat-label>
+              <input matInput [value]="user.discordNickname" disabled/>
+            </mat-form-field>
+          </div>
+          <div class="form-field">
+            <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1" >
+              <mat-label>Pseudo minecraft</mat-label>
+              <input matInput #val formControlName="minecraftUsername"/>
+              <mat-error *ngIf="hasError('minecraftUsername', 'required')">Tu doit renseigner ton pseudo minecraft pour que l'on t'enregistre sur la whitelist</mat-error>
+              <mat-error *ngIf="hasError('minecraftUsername', 'minlength')">Ton pseudo minecraft doit au moins 3 character</mat-error>
+              <mat-error *ngIf="hasError('minecraftUsername', 'maxlength')">Ton pseudo minecraft ne peut faire plus de 16 character</mat-error>
+              <mat-error *ngIf="hasError('minecraftUsername', 'invalidMinecraftUsername')">Se se pseudo minecraft n'existe pas</mat-error>
+              <mat-error *ngIf="hasError('minecraftUsername', 'takenUsername')">Se compte Minecraft et déjà utiliser par un membre du server</mat-error>
+            </mat-form-field>
+            <div class="mc-img" [ngStyle]="style"></div>
+          </div>
+        </div>
+        <div class="form-group stretch" style="margin-top: 10px;">
+          <mat-form-field appearance="outline" style="width: 100%">
+            <mat-label>Candidature</mat-label>
+            <textarea matInput
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="15"
+                      cdkAutosizeMaxRows="50"
+                      formControlName="candidature"></textarea>
+            <mat-error *ngIf="hasError('candidature', 'required')">Tu doit écrire une candidature pour l'envoyer</mat-error>
+            <mat-error *ngIf="hasError('candidature', 'minlength')">Ta candidature doit contenir au moins 1024 caractères</mat-error>
+            <mat-error *ngIf="hasError('candidature', 'maxlength')">Ta candidature et trop longue pas plus de 4096 caractères</mat-error>
           </mat-form-field>
         </div>
-        <div class="form-field">
-          <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1" >
-            <mat-label>Pseudo minecraft</mat-label>
-            <input matInput #val formControlName="minecraftUsername"/>
-            <mat-error *ngIf="hasError('minecraftUsername', 'required')">Tu doit renseigner ton pseudo minecraft pour que l'on t'enregistre sur la whitelist</mat-error>
-            <mat-error *ngIf="hasError('minecraftUsername', 'minlength')">Ton pseudo minecraft doit au moins 3 character</mat-error>
-            <mat-error *ngIf="hasError('minecraftUsername', 'maxlength')">Ton pseudo minecraft ne peut faire plus de 16 character</mat-error>
-            <mat-error *ngIf="hasError('minecraftUsername', 'invalidMinecraftUsername')">Se se pseudo minecraft n'existe pas</mat-error>
-            <mat-error *ngIf="hasError('minecraftUsername', 'takenUsername')">Se compte Minecraft et déjà utiliser par un membre du server</mat-error>
-          </mat-form-field>
-          <div class="mc-img" [ngStyle]="style"></div>
+        <div class="form-group stretch">
+          <mat-checkbox formControlName="conditions">J'accepte que ma candidature, ainsi que mes statistiques en jeu, soient publiées sur litopia.fr dans la section <a routerLink="/member" href="/membres">nos membres</a>.</mat-checkbox>
+          <mat-error *ngIf="hasError('conditions', 'requiredTrue')">Tu doit accepter les condition pour rejoindre Litopia</mat-error>
         </div>
-      </div>
-      <div class="form-group stretch" style="margin-top: 10px;">
-        <mat-form-field appearance="outline" style="width: 100%">
-          <mat-label>Candidature</mat-label>
-          <textarea matInput
-                    cdkTextareaAutosize
-                    #autosize="cdkTextareaAutosize"
-                    cdkAutosizeMinRows="15"
-                    cdkAutosizeMaxRows="50"
-                    formControlName="candidature"></textarea>
-          <mat-error *ngIf="hasError('candidature', 'required')">Tu doit écrire une candidature pour l'envoyer</mat-error>
-          <mat-error *ngIf="hasError('candidature', 'minlength')">Ta candidature doit contenir au moins 1024 caractères</mat-error>
-          <mat-error *ngIf="hasError('candidature', 'maxlength')">Ta candidature et trop longue pas plus de 4096 caractères</mat-error>
-        </mat-form-field>
-      </div>
-      <div class="form-group stretch">
-        <mat-checkbox formControlName="conditions">J'accepte que ma candidature, ainsi que mes statistiques en jeu, soient publiées sur litopia.fr dans la section <a routerLink="/member" href="/membres">nos membres</a>.</mat-checkbox>
-        <mat-error *ngIf="hasError('conditions', 'required')">Tu doit accepter les condition pour rejoindre Litopia</mat-error>
-      </div>
-      <div style="margin-top: 20px" class="form-group stretch">
-        <button mat-flat-button color="primary" disabled="true">
-          <span>Envoyer&nbsp;</span>
-          <mat-icon>send</mat-icon>
-        </button>
-      </div>
+        <div style="margin-top: 20px" class="form-group stretch">
+          <button mat-flat-button color="primary" type="submit" [disabled]="!candidatureForm.valid && !user.logged">
+            <span>Envoyer&nbsp;</span>
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #notAvailable>
+        <h2>Tu à déjà rédiger ta canidature</h2>
+        <h3>Espèce de petit malin</h3>
+        <p>Voici la candidature que nous avons enregistrer :</p>
+        <p>{{user.candidature}}</p>
+      </ng-template>
     </form>
   </div>
 </section>
