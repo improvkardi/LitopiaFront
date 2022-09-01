@@ -2,7 +2,6 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
-import { AuthService } from './litopia-api/api/auth.service';
 import { CandidatureProcessService } from './api/candidatureProcess.service';
 import { DefaultService } from './api/default.service';
 import { MinecraftUsersService } from './api/minecraftUsers.service';
@@ -12,7 +11,11 @@ import { UsersService } from './api/users.service';
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: []
+  providers: [
+    CandidatureProcessService,
+    MinecraftUsersService,
+    UsersService
+  ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {
