@@ -11,6 +11,9 @@ import {
 } from "@angular/forms";
 import {lastValueFrom, map, switchMap, take, throttleTime} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {SimpleMinecaftAccount} from "../../../apis/minecraft-api/model/simpleMinecaftAccount";
+import {MinecraftUsersService} from "../../../apis/litopia-api";
+import {uuidConverter} from "../../../utils/uuid-converter";
 
 @Component({
   selector: 'app-nous-rejoindre-form',
@@ -23,7 +26,7 @@ export class NousRejoindreFormComponent {
 
   style:{[klass: string]: any;}|null=null;
 
-  constructor(public authService : AuthenticationService, private mcApiService:MinecraftApiService,private http: HttpClient) {
+  constructor(public authService : AuthenticationService, private mcApiService:MinecraftApiService,private http: HttpClient,private minecraftUserService:MinecraftUsersService) {
     this.candidatureForm = new FormGroup({
       minecraftUsername: new FormControl('', [
         Validators.required, Validators.minLength(3),
@@ -31,7 +34,8 @@ export class NousRejoindreFormComponent {
       ], [
         this.minecraftAsyncValidator()
       ]),
-      candidature: new FormControl('', [Validators.required, Validators.minLength(1024), Validators.maxLength(4096)])
+      candidature: new FormControl('', [Validators.required, Validators.minLength(1024), Validators.maxLength(4096)]),
+      conditions: new FormControl(false, [Validators.required])
     });
 
     this.candidatureForm.controls['minecraftUsername'].valueChanges.pipe(
@@ -58,7 +62,15 @@ export class NousRejoindreFormComponent {
       try {
         const val = await lastValueFrom(this.mcApiService.getUUIDFomUser$Response(control.value))
         if (val){
-          return null;
+          const mcUser = <SimpleMinecaftAccount>val;
+          try{
+            const uuid = uuidConverter(mcUser.id);
+            await lastValueFrom(this.minecraftUserService.minecraftUsersControllerIsMinecraftUserExist(uuid));
+            return {takenUsername: true};
+          }catch (e){
+            console.log(e)
+            return null;
+          }
         }
         return {invalidMinecraftUsername:true};
       }catch (e) {

@@ -30,7 +30,7 @@ import { Configuration }                                     from '../configurat
 })
 export class MinecraftUsersService {
 
-    protected basePath = 'http://localhost';
+    protected basePath = '';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;

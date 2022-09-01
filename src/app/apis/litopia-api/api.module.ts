@@ -1,21 +1,13 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
-
-import { CandidatureProcessService } from './api/candidatureProcess.service';
-import { DefaultService } from './api/default.service';
-import { MinecraftUsersService } from './api/minecraftUsers.service';
-import { UsersService } from './api/users.service';
+import {APIS} from "./api/api";
 
 @NgModule({
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: [
-    CandidatureProcessService,
-    MinecraftUsersService,
-    UsersService
-  ]
+  providers: [APIS]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {

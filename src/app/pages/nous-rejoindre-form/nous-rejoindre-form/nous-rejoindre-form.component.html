@@ -29,6 +29,7 @@
             <mat-error *ngIf="hasError('minecraftUsername', 'minlength')">Ton pseudo minecraft doit au moins 3 character</mat-error>
             <mat-error *ngIf="hasError('minecraftUsername', 'maxlength')">Ton pseudo minecraft ne peut faire plus de 16 character</mat-error>
             <mat-error *ngIf="hasError('minecraftUsername', 'invalidMinecraftUsername')">Se se pseudo minecraft n'existe pas</mat-error>
+            <mat-error *ngIf="hasError('minecraftUsername', 'takenUsername')">Se compte Minecraft et déjà utiliser par un membre du server</mat-error>
           </mat-form-field>
           <div class="mc-img" [ngStyle]="style"></div>
         </div>
@@ -48,7 +49,8 @@
         </mat-form-field>
       </div>
       <div class="form-group stretch">
-        <mat-checkbox>J'accepte que ma candidature, ainsi que mes statistiques en jeu, soient publiées sur litopia.fr dans la section <a routerLink="/member" href="/membres">nos membres</a>.</mat-checkbox>
+        <mat-checkbox formControlName="conditions">J'accepte que ma candidature, ainsi que mes statistiques en jeu, soient publiées sur litopia.fr dans la section <a routerLink="/member" href="/membres">nos membres</a>.</mat-checkbox>
+        <mat-error *ngIf="hasError('conditions', 'required')">Tu doit accepter les condition pour rejoindre Litopia</mat-error>
       </div>
       <div style="margin-top: 20px" class="form-group stretch">
         <button mat-flat-button color="primary" disabled="true">
