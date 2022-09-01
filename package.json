@@ -11,7 +11,8 @@
     "serve:ssr": "node dist/LitopiaFront/server/main.js",
     "build:ssr": "ng build && ng run LitopiaFront:server",
     "prerender": "ng run LitopiaFront:prerender",
-    "prebuild": "gulp compress"
+    "prebuild": "gulp compress",
+    "openAPIGenerator": "sudo openapi-generator-cli generate -i http://localhost:8080/api-json -g typescript-angular -o ./src/app/api"
   },
   "private": true,
   "dependencies": {
