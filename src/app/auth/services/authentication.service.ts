@@ -44,7 +44,6 @@ export class AuthenticationService{
   }
 
   private getUserStatus(){
-    console.log('get user status')
     this.http.get<User>('/api/auth/status').subscribe({
       next:(value)=>{
         this.currentUserSubject.next({

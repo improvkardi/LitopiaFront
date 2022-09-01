@@ -5,7 +5,7 @@
     [imgAlt]="'Consulat de litopia'">
   </app-page-header>
   <div class="page-content-container">
-    <form class="card-container-column form-align">
+    <form class="card-container-column form-align" [formGroup]="candidatureForm">
       <h2>Ta Candidature (applique toi 😄)</h2>
       <p>Afin de valider ta candidature tu doit renseigner les information ci dessous.</p>
       <p>En commensant par te connecter à discord</p>
@@ -22,9 +22,13 @@
           </mat-form-field>
         </div>
         <div class="form-field">
-          <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1">
+          <mat-form-field appearance="outline" style="height: 60px; flex-grow: 1" >
             <mat-label>Pseudo minecraft</mat-label>
-            <input matInput #val/>
+            <input matInput #val formControlName="minecraftUsername"/>
+            <mat-error *ngIf="hasError('minecraftUsername', 'required')">Tu doit renseigner ton pseudo minecraft pour que l'on t'enregistre sur la whitelist</mat-error>
+            <mat-error *ngIf="hasError('minecraftUsername', 'minlength')">Ton pseudo minecraft doit au moins 3 character</mat-error>
+            <mat-error *ngIf="hasError('minecraftUsername', 'maxlength')">Ton pseudo minecraft ne peut faire plus de 16 character</mat-error>
+            <mat-error *ngIf="hasError('minecraftUsername', 'invalidMinecraftUsername')">Se se pseudo minecraft n'existe pas</mat-error>
           </mat-form-field>
           <div class="mc-img" [ngStyle]="getClassForUsername(val.value)"></div>
         </div>
@@ -36,7 +40,11 @@
                     cdkTextareaAutosize
                     #autosize="cdkTextareaAutosize"
                     cdkAutosizeMinRows="15"
-                    cdkAutosizeMaxRows="50"></textarea>
+                    cdkAutosizeMaxRows="50"
+                    formControlName="candidature"></textarea>
+          <mat-error *ngIf="hasError('candidature', 'required')">Tu doit écrire une candidature pour l'envoyer</mat-error>
+          <mat-error *ngIf="hasError('candidature', 'minlength')">Ta candidature doit contenir au moins 1024 caractères</mat-error>
+          <mat-error *ngIf="hasError('candidature', 'maxlength')">Ta candidature et trop longue pas plus de 4096 caractères</mat-error>
         </mat-form-field>
       </div>
       <div class="form-group stretch">

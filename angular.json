@@ -131,6 +131,9 @@
         },
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
+          "options": {
+            "proxyConfig": "./proxy.conf.json"
+          },
           "configurations": {
             "development": {
               "browserTarget": "LitopiaFront:build:development",

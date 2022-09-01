@@ -1,0 +1,10 @@
+{
+  "/proxy/mcapi": {
+    "target": "https://api.mojang.com/",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/proxy/mcapi": ""
+    }
+  }
+}
