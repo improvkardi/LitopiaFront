@@ -9,7 +9,8 @@ import {
   ValidationErrors,
   Validators
 } from "@angular/forms";
-import {lastValueFrom} from "rxjs";
+import {lastValueFrom, map, switchMap, take, throttleTime} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-nous-rejoindre-form',
@@ -20,25 +21,32 @@ export class NousRejoindreFormComponent {
 
   candidatureForm:FormGroup;
 
-  constructor(public authService : AuthenticationService, private mcApiService:MinecraftApiService) {
+  style:{[klass: string]: any;}|null=null;
+
+  constructor(public authService : AuthenticationService, private mcApiService:MinecraftApiService,private http: HttpClient) {
     this.candidatureForm = new FormGroup({
       minecraftUsername: new FormControl('', [
         Validators.required, Validators.minLength(3),
         Validators.maxLength(16)
-      ],[
+      ], [
         this.minecraftAsyncValidator()
       ]),
       candidature: new FormControl('', [Validators.required, Validators.minLength(1024), Validators.maxLength(4096)])
     });
-  }
 
-  getClassForUsername(name:string){
-    return {
-      backgroundImage:`url(https://mc-heads.net/head/${name}/left)`,
-      backgroundPosition:'center center',
-      backgroundRepeat:'no-repeat',
-      backgroundSize:'cover'
-    }
+    this.candidatureForm.controls['minecraftUsername'].valueChanges.pipe(
+      throttleTime(200, undefined, {leading: true, trailing: true}),
+      switchMap((name:string)=>{
+        return this.imageUrlToBase64(`https://mc-heads.net/head/${name}/left`)
+      }),
+      map((base64:string)=>{
+        return {
+          backgroundImage:"url(data:image/png;;base64,"+base64+")",
+        }
+      })
+    ).subscribe(style=>{
+      this.style = style;
+    })
   }
 
   hasError(controlName:string, errorName:string){
@@ -57,5 +65,22 @@ export class NousRejoindreFormComponent {
         return {invalidMinecraftUsername:true};
       }
     }
+  }
+
+  imageUrlToBase64(urL: string) {
+    return this.http.get(urL, {
+      observe: 'body',
+      responseType: 'arraybuffer',
+    })
+      .pipe(
+        take(1),
+        map((arrayBuffer) =>
+          btoa(
+            Array.from(new Uint8Array(arrayBuffer))
+              .map((b) => String.fromCharCode(b))
+              .join('')
+          )
+        ),
+      )
   }
 }
