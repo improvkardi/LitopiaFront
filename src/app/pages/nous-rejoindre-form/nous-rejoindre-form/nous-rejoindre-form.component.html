@@ -66,17 +66,33 @@
           <mat-error *ngIf="hasError('conditions', 'requiredTrue')">Tu doit accepter les condition pour rejoindre Litopia</mat-error>
         </div>
         <div style="margin-top: 20px" class="form-group stretch">
-          <button mat-flat-button color="primary" type="submit" [disabled]="!candidatureForm.valid && !user.logged">
+          <button mat-flat-button color="primary" type="submit" [disabled]="!candidatureForm.valid || !user.logged">
             <span>Envoyer&nbsp;</span>
             <mat-icon>send</mat-icon>
           </button>
         </div>
       </ng-container>
       <ng-template #notAvailable>
-        <h2>Tu à déjà rédiger ta canidature</h2>
-        <h3>Espèce de petit malin</h3>
-        <p>Voici la candidature que nous avons enregistrer :</p>
-        <p>{{user.candidature}}</p>
+        <div *ngIf="user.role==='candidate';else member">
+          <h2>Ta candidature à bien était envoyer !</h2>
+          <p>Nous t'enverrons un message sur discord dès que nous aurons validé ta candidature.</p>
+          <p>En attendant voici la candidature que tu nous à envoyer :</p>
+          <p>{{user.candidature}}</p>
+          <a mat-flat-button href="/" routerLink="/" color="accent">
+            <mat-icon>home</mat-icon>
+            <span>&nbsp;Retourner à l'accueil</span>
+          </a>
+        </div>
+        <ng-template #member>
+          <h2>Tu à déjà rédiger ta canidature</h2>
+          <h3>Espèce de petit malin</h3>
+          <p>Voici la candidature que nous avons enregistrer :</p>
+          <p>{{user.candidature}}</p>
+          <a mat-flat-button href="/" routerLink="/" color="accent">
+            <mat-icon>home</mat-icon>
+            <span>&nbsp;Retourner à l'accueil</span>
+          </a>
+        </ng-template>
       </ng-template>
     </form>
   </div>

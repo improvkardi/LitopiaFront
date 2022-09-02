@@ -17,6 +17,9 @@
   $bg-card:mat.get-color-from-palette($background-palette, 'card');
   $bg-5:mat.get-color-from-palette($background-palette, 5);
 
+  $warn-palette: map.get($color-config, 'warn');
+  $warn:mat.get-color-from-palette($warn-palette, 'main');
+
   .big-title{
     max-width: 600px;
     font-weight: 600;
@@ -156,6 +159,16 @@
         color: $primary-color;
       }
     }
+  }
+
+  .snackbar-error{
+    background-color: $warn;
+    color: $text-color;
+  }
+
+  .snackbar-success{
+    background-color: $primary-color;
+    color: $text-color;
   }
 
 }

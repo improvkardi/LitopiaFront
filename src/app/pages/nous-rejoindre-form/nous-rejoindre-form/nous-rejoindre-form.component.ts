@@ -12,8 +12,9 @@ import {
 import {lastValueFrom, map, switchMap, take, throttleTime} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {SimpleMinecaftAccount} from "../../../apis/minecraft-api/model/simpleMinecaftAccount";
-import {MinecraftUsersService} from "../../../apis/litopia-api";
+import {CandidatureProcessService, MinecraftUsersService} from "../../../apis/litopia-api";
 import {uuidConverter} from "../../../utils/uuid-converter";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-nous-rejoindre-form',
@@ -26,9 +27,16 @@ export class NousRejoindreFormComponent {
 
   style:{[klass: string]: any;}|null=null;
 
-  constructor(public authService : AuthenticationService, private mcApiService:MinecraftApiService,private http: HttpClient,private minecraftUserService:MinecraftUsersService) {
+  uuid='';
+
+  constructor(
+    public authService : AuthenticationService,
+    private mcApiService:MinecraftApiService,
+    private http: HttpClient,
+    private minecraftUserService:MinecraftUsersService,
+    private candidatureProcess:CandidatureProcessService,
+    private snackBar: MatSnackBar) {
     this.candidatureForm = new FormGroup({
-      isLogged: new FormControl(false,[Validators.requiredTrue]),
       minecraftUsername: new FormControl('', [
         Validators.required, Validators.minLength(3),
         Validators.maxLength(16)
@@ -65,8 +73,8 @@ export class NousRejoindreFormComponent {
         if (val){
           const mcUser = <SimpleMinecaftAccount>val;
           try{
-            const uuid = uuidConverter(mcUser.id);
-            await lastValueFrom(this.minecraftUserService.minecraftUsersControllerIsMinecraftUserExist(uuid));
+            this.uuid = uuidConverter(mcUser.id);
+            await lastValueFrom(this.minecraftUserService.minecraftUsersControllerIsMinecraftUserExist(this.uuid));
             return {takenUsername: true};
           }catch (e){
             console.log(e)
@@ -97,8 +105,23 @@ export class NousRejoindreFormComponent {
       )
   }
 
-  onSubmit(){
-    console.log(this.candidatureForm.value);
-
+  async onSubmit(){
+    const user = this.authService.currentUserValue;
+    if (!user.logged){
+      this.snackBar.open('Vous devez être connecté pour pouvoir candidater', 'Ok', {duration: 5000, panelClass: 'snackbar-error'});
+    }
+    try {
+      const userEntity = await lastValueFrom(
+        this.candidatureProcess.candidatureProcessControllerPostCandidature({candidature: this.candidatureForm.value.candidature, minecraftUUID:this.uuid})
+      );
+      if (userEntity){
+        this.snackBar.open('Candidature envoyée', 'Ok', {duration: 5000, panelClass: 'snackbar-success'});
+        this.authService.updateUserStatus();
+      }else {
+        this.snackBar.open('Erreur lors de l\'envoi de la candidature', 'Ok', {duration: 5000, panelClass: 'snackbar-error'});
+      }
+    }catch (e){
+      this.snackBar.open('Erreur lors de l\'envoi de la candidature', 'Ok', {duration: 5000, panelClass: 'snackbar-error'});
+    }
   }
 }

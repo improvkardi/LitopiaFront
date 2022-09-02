@@ -17,7 +17,7 @@ export class AuthenticationService{
     private readonly http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<Partial<User>>({logged:false});
     this.currentUserObs = this.currentUserSubject.asObservable();
-    this.getUserStatus();
+    this.updateUserStatus();
   }
 
   public get currentUserValue(): Partial<User>{
@@ -29,7 +29,7 @@ export class AuthenticationService{
       const child = window.open('/api/auth/login', '', 'toolbar=0,status=0,width=400,height=800')
       const timer = setInterval(() => {
         if (child && child.closed) {
-          this.getUserStatus();
+          this.updateUserStatus();
           clearInterval(timer);
         }
       }, 500);
@@ -40,10 +40,10 @@ export class AuthenticationService{
     try {
       await firstValueFrom(this.http.get('/api/auth/logout'))
     } catch (e){}
-    this.getUserStatus();
+    this.updateUserStatus();
   }
 
-  private getUserStatus(){
+  public updateUserStatus(){
     this.http.get<User>('/api/auth/status').subscribe({
       next:(value)=>{
         this.currentUserSubject.next({

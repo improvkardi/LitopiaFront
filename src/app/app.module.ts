@@ -36,6 +36,7 @@ import { NousRejoindreFormCounselComponent } from './pages/nous-rejoindre-form/n
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatSnackBarModule,
   ],
   providers: [
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
