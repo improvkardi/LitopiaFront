@@ -111,15 +111,11 @@ export class NousRejoindreFormComponent {
       this.snackBar.open('Vous devez être connecté pour pouvoir candidater', 'Ok', {duration: 5000, panelClass: 'snackbar-error'});
     }
     try {
-      const userEntity = await lastValueFrom(
+      await lastValueFrom(
         this.candidatureProcess.candidatureProcessControllerPostCandidature({candidature: this.candidatureForm.value.candidature, minecraftUUID:this.uuid})
       );
-      if (userEntity){
-        this.snackBar.open('Candidature envoyée', 'Ok', {duration: 5000, panelClass: 'snackbar-success'});
-        this.authService.updateUserStatus();
-      }else {
-        this.snackBar.open('Erreur lors de l\'envoi de la candidature', 'Ok', {duration: 5000, panelClass: 'snackbar-error'});
-      }
+      this.snackBar.open('Candidature envoyée', 'Ok', {duration: 5000, panelClass: 'snackbar-success'});
+      this.authService.updateUserStatus();
     }catch (e){
       this.snackBar.open('Erreur lors de l\'envoi de la candidature', 'Ok', {duration: 5000, panelClass: 'snackbar-error'});
     }
