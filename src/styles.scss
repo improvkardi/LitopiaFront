@@ -10,7 +10,8 @@
 @use "app/pages/acceuil/fullscreen-img-text/fullscreen-img-text.theme.component" as fullscreen-img-text;
 @use "app/pages/acceuil/timeline/timeline.theme.component" as timeline-container;
 @use "app/pages/acceuil/timeline/timeline-item/timeline-item.component.theme" as timeline-item;
-@use "app/pages/nous-rejoindre-form/nous-rejoindre-form.component.theme" as nous-rejoindre-form;
+@use "app/pages/nous-rejoindre-form/nous-rejoindre-form.component.theme" as nous-rejoindre;
+@use "app/pages/nous-rejoindre-form/nous-rejoindre-form/nous-rejoindre-form.theme.component" as nous-rejoindre-form;
 @use "app/layout/footer/footers.component.theme" as footer;
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -164,7 +165,7 @@ $mat-dark-theme-background: (
 
 // Theme Config
 
-$mat-primary: (
+$mat-primary-dark-theme: (
   main: #30f230,
   lighter: #b3ffb3,
   darker: #4d994d,
@@ -175,8 +176,20 @@ $mat-primary: (
     darker: $dark-primary-text,
   )
 );
-$theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
+$theme-primary-dark: mat.define-palette($mat-primary-dark-theme, main, lighter, darker);
 
+$mat-accent-light-theme: (
+  main: #6eba5e,
+  lighter: #a0ed8d,
+  darker: #3d8931,
+  200: #6eba5e, // For slide toggle,
+  contrast : (
+    main: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text,
+  )
+);
+$theme-accent-light: mat.define-palette($mat-accent-light-theme, main, lighter, darker);
 
 $mat-accent: (
   main: #df9b35,
@@ -208,7 +221,7 @@ $theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
 
 $lightTheme: (
   primary: $theme-accent,
-  accent: $theme-primary,
+  accent: $theme-accent-light,
   warn: $theme-warn,
   is-dark: false,
   foreground: $mat-light-theme-foreground,
@@ -216,7 +229,7 @@ $lightTheme: (
 );
 
 $darkTheme: (
-  primary: $theme-primary,
+  primary: $theme-primary-dark,
   accent: $theme-accent,
   warn: $theme-warn,
   is-dark: true,
@@ -232,6 +245,7 @@ $darkTheme: (
 @include fullscreen-img-text.theme($darkTheme);
 @include timeline-item.theme($darkTheme);
 @include timeline-container.theme($darkTheme);
+@include nous-rejoindre.theme($darkTheme);
 @include nous-rejoindre-form.theme($darkTheme);
 @include footer.theme($darkTheme);
 
@@ -250,6 +264,7 @@ body{
   @include fullscreen-img-text.theme($lightTheme);
   @include timeline-item.theme($lightTheme);
   @include timeline-container.theme($lightTheme);
+  @include nous-rejoindre.theme($lightTheme);
   @include nous-rejoindre-form.theme($lightTheme);
   @include footer.theme($lightTheme);
 }
