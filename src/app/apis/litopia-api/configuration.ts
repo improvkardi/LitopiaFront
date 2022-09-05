@@ -26,6 +26,7 @@ export class Configuration {
     /**
      *  @deprecated Since 5.0. Use credentials instead
      */
+
     apiKeys?: {[ key: string ]: string};
     username?: string;
     password?: string;

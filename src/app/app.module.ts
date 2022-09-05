@@ -37,6 +37,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {ApiModule, Configuration} from "./apis/litopia-api";
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'serverApp'}),
+    ApiModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -84,7 +87,16 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     { provide: 'LOCALSTORAGE', useFactory: getLocalStorage },
     { provide: 'PREFERSCOLOR', useFactory: getPrefersColorSchemeDark },
     { provide: 'WINDOWS', useFactory:getWindows },
-    { provide: 'DOCUMENT', useFactory:getDocument}
+    { provide: 'DOCUMENT', useFactory:getDocument},
+    {
+      provide: Configuration,
+      useFactory: () => new Configuration(
+        {
+          basePath: environment.apiBasePath,
+        }
+      ),
+      multi: false
+    }
   ],
   bootstrap: [AppComponent],
   exports:[MatCheckboxModule]
